@@ -2,7 +2,7 @@
   "name": "reinput",
   "version": "1.0.0",
   "description": "React Native input",
-  "main": "./lib/index.js",
+  "main": "./src/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sospedra/reinput.git"
@@ -20,11 +20,12 @@
   "author": "Ruben Sospedra",
   "license": "MIT",
   "homepage": "https://github.com/sospedra/reinput#readme",
+  "peerDependencies": {
+    "react": "*",
+    "react-native": "*"
+  },
   "devDependencies": {
-    "babel-cli": "^6.26.0",
-    "babel-core": "^6.26.0",
     "babel-eslint": "^7.2.3",
-    "babel-preset-react-native": "^3.0.2",
     "eslint": "^4.6.1",
     "eslint-config-standard": "^10.2.1",
     "eslint-plugin-import": "^2.7.0",
@@ -35,9 +36,7 @@
     "husky": "^0.14.3"
   },
   "scripts": {
-    "build": "babel src -d lib",
     "precommit": "npm test",
-    "prepublish": "npm run build",
     "test:lint": "eslint src",
     "test": "npm run test:lint"
   }

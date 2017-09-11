@@ -12,7 +12,7 @@ export default class Underline extends React.Component {
 
   componentDidMount () {
     requestAnimationFrame(() => {
-      this.element && this.elment.measure((left, top, width) => {
+      this.element && this.element.measure((left, top, width) => {
         this.wrapperWidth = width
       })
     })
