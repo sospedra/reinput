@@ -2,13 +2,15 @@
   "name": "reinput",
   "version": "1.0.0",
   "description": "React Native input",
-  "main": "./index.js",
+  "main": "./lib/index.js",
   "repository": {
     "type": "git",
     "url": "git+https://github.com/sospedra/reinput.git"
   },
   "keywords": [
     "react-native",
+    "input",
+    "animation",
     "TextInput",
     "material-design"
   ],
@@ -30,5 +32,11 @@
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^3.0.1"
+  },
+  "scripts": {
+    "build": "babel src -d lib",
+    "prepublish": "npm run build",
+    "test:style": "eslint src/**/*.js",
+    "test": "npm run test:style"
   }
 }

@@ -4,55 +4,51 @@ import { View, Animated } from 'react-native'
 import { propTypes } from './props'
 import styles from './styles'
 
-export class Underline extends React.Component {
-  constructor (props: Object) {
-    super(props)
-    this.state = {
-      lineLength: new Animated.Value(0)
-    }
-    this.wrapperWidth = 0
-  }
+export default class Underline extends React.Component {
+  static propTypes = propTypes
+
+  wrapperWidth = 0
+  state = { lineLength: new Animated.Value(0) }
+
   componentDidMount () {
     requestAnimationFrame(() => {
-      this.element && this.elment.measure((left, top, width, height) => {
+      this.element && this.elment.measure((left, top, width) => {
         this.wrapperWidth = width
       })
     })
   }
+
   expandLine () {
     Animated.timing(this.state.lineLength, {
-      toValue: this.wrapperWidth,
-      duration: this.props.duration
+      duration: this.props.duration,
+      toValue: this.wrapperWidth
     }).start()
   }
+
   shrinkLine () {
     Animated.timing(this.state.lineLength, {
-      toValue: 0,
-      duration: this.props.duration
+      duration: this.props.duration,
+      toValue: 0
     }).start()
   }
+
   render () {
-    let {
-      borderColor,
-      highlightColor
-    } = this.props
     return (
       <View
-        style={[styles.underlineWrapper, {
-          backgroundColor: borderColor
-        }]}
         ref={(ref) => { this.element = ref }}
+        style={[
+          styles.underlineWrapper,
+          { backgroundColor: this.props.borderColor }
+        ]}
       >
         <Animated.View
-          style={[{
-            width: this.state.lineLength,
+          style={{
+            backgroundColor: this.props.highlightColor,
             height: 1,
-            backgroundColor: highlightColor
-          }]}>
+            width: this.state.lineLength
+          }}>
         </Animated.View>
       </View>
     )
   }
 }
-
-Underline.propTypes = propTypes
