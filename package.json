@@ -31,12 +31,14 @@
     "eslint-plugin-node": "^5.1.1",
     "eslint-plugin-promise": "^3.5.0",
     "eslint-plugin-react": "^7.3.0",
-    "eslint-plugin-standard": "^3.0.1"
+    "eslint-plugin-standard": "^3.0.1",
+    "husky": "^0.14.3"
   },
   "scripts": {
     "build": "babel src -d lib",
+    "precommit": "npm test",
     "prepublish": "npm run build",
-    "test:style": "eslint src/**/*.js",
-    "test": "npm run test:style"
+    "test:lint": "eslint src",
+    "test": "npm run test:lint"
   }
 }
