@@ -9,14 +9,7 @@ export default class Underline extends React.Component {
 
   wrapperWidth = 0
   state = { lineLength: new Animated.Value(0) }
-
-  componentDidMount () {
-    requestAnimationFrame(() => {
-      this.element && this.element.measure((left, top, width) => {
-        this.wrapperWidth = width
-      })
-    })
-  }
+  measure = (e) => { this.wrapperWidth = e.nativeEvent.layout.width }
 
   expandLine () {
     Animated.timing(this.state.lineLength, {
@@ -35,7 +28,7 @@ export default class Underline extends React.Component {
   render () {
     return (
       <View
-        ref={(ref) => { this.element = ref }}
+        onLayout={this.measure}
         style={[
           styles.underlineWrapper,
           { backgroundColor: this.props.borderColor }

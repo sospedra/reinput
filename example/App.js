@@ -9,9 +9,13 @@ export default class example extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <Reinput
-          label='Reinput'
-        />
+        <View style={{ flexDirection: 'row' }}>
+          <Text>Ico</Text>
+          <Reinput
+            label='Reinput'
+            highlightColor='blue'
+          />
+        </View>
       </View>
     )
   }

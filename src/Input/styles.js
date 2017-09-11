@@ -5,7 +5,8 @@ export default StyleSheet.create({
     height: 72,
     paddingBottom: 7,
     paddingTop: 30,
-    position: 'relative'
+    position: 'relative',
+    flex: 1
   },
   denseWrapper: {
     height: 60,
