@@ -42,26 +42,27 @@ export default class Input extends React.Component {
 
   render () {
     const {
-      label,
-      highlightColor,
-      duration,
-      labelColor,
+      autoGrow,
       borderColor,
-      textColor,
-      textFocusColor,
-      textBlurColor,
-      onFocus,
+      borderless,
+      dense,
+      duration,
+      height,
+      highlightColor,
+      inputStyle,
+      label,
+      labelColor,
+      labelStyle,
+      multiline,
       onBlur,
       onChangeText,
-      onChange,
+      onContentSizeChange,
+      onFocus,
+      textBlurColor,
+      textColor,
+      textFocusColor,
       value,
-      dense,
-      inputStyle,
       wrapperStyle,
-      labelStyle,
-      height,
-      autoGrow,
-      multiline,
       ...props
     } = this.props
 
@@ -115,9 +116,9 @@ export default class Input extends React.Component {
 
         <Underline
           ref={(ref) => { this.elements.underline = ref }}
-          highlightColor={highlightColor}
+          highlightColor={borderless ? 'transparent' : highlightColor}
           duration={duration}
-          borderColor={borderColor}
+          borderColor={borderless ? 'transparent' : borderColor}
         />
 
         <FloatingLabel
