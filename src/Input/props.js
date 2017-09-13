@@ -3,6 +3,7 @@ import PropTypes from 'prop-types'
 export const defaultProps = {
   autoGrow: false,
   borderColor: '#E0E0E0',
+  borderless: false,
   dense: false,
   duration: 200,
   height: undefined,
@@ -14,24 +15,26 @@ export const defaultProps = {
 }
 
 export const propTypes = {
-  autoGrow: PropTypes.bool,
-  borderColor: PropTypes.string,
-  dense: PropTypes.bool,
-  duration: PropTypes.number,
-  height: PropTypes.oneOfType([PropTypes.oneOf(undefined), PropTypes.number]),
+  autoGrow: PropTypes.bool.isRequired,
+  borderColor: PropTypes.string.isRequired,
+  borderless: PropTypes.bool.isRequired,
+  dense: PropTypes.bool.isRequired,
+  duration: PropTypes.number.isRequired,
+  height: PropTypes.number,
   highlightColor: PropTypes.string,
   inputStyle: PropTypes.object,
   label: PropTypes.string,
-  labelColor: PropTypes.string,
+  labelColor: PropTypes.string.isRequired,
   labelStyle: PropTypes.object,
-  multiline: PropTypes.bool,
+  multiline: PropTypes.bool.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onChangeText: PropTypes.func,
+  onContentSizeChange: PropTypes.func,
   onFocus: PropTypes.func,
   textBlurColor: PropTypes.string,
-  textColor: PropTypes.string,
+  textColor: PropTypes.string.isRequired,
   textFocusColor: PropTypes.string,
-  value: PropTypes.string,
+  value: PropTypes.string.isRequired,
   wrapperStyle: PropTypes.object
 }

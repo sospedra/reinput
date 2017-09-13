@@ -18,7 +18,7 @@ export default class Input extends React.Component {
   }
 
   componentWillReceiveProps (nextProps: Object) {
-    if (this.props.text !== nextProps.value) {
+    if (this.state.text !== nextProps.value) {
       nextProps.value.length !== 0
         ? this.elements.floatingLabel.floatLabel()
         : this.elements.floatingLabel.sinkLabel()
@@ -42,26 +42,27 @@ export default class Input extends React.Component {
 
   render () {
     const {
-      label,
-      highlightColor,
-      duration,
-      labelColor,
+      autoGrow,
       borderColor,
-      textColor,
-      textFocusColor,
-      textBlurColor,
-      onFocus,
+      borderless,
+      dense,
+      duration,
+      height,
+      highlightColor,
+      inputStyle,
+      label,
+      labelColor,
+      labelStyle,
+      multiline,
       onBlur,
       onChangeText,
-      onChange,
+      onContentSizeChange,
+      onFocus,
+      textBlurColor,
+      textColor,
+      textFocusColor,
       value,
-      dense,
-      inputStyle,
       wrapperStyle,
-      labelStyle,
-      height,
-      autoGrow,
-      multiline,
       ...props
     } = this.props
 
@@ -100,13 +101,13 @@ export default class Input extends React.Component {
             this.setState({ text })
             onChangeText && onChangeText(text)
           }}
-          onChange={(event) => {
-            if (autoGrow) {
+          onContentSizeChange={(event) => {
+            if (autoGrow && event.nativeEvent.contentSize) {
               this.setState({
                 height: event.nativeEvent.contentSize.height
               })
             }
-            onChange && onChange(event)
+            onContentSizeChange && onContentSizeChange(event)
           }}
           ref={(ref) => { this.elements.input = ref }}
           value={this.state.text}
@@ -115,9 +116,9 @@ export default class Input extends React.Component {
 
         <Underline
           ref={(ref) => { this.elements.underline = ref }}
-          highlightColor={highlightColor}
+          highlightColor={borderless ? 'transparent' : highlightColor}
           duration={duration}
-          borderColor={borderColor}
+          borderColor={borderless ? 'transparent' : borderColor}
         />
 
         <FloatingLabel
