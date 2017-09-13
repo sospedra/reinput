@@ -30,6 +30,7 @@ export const propTypes = {
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
   onChangeText: PropTypes.func,
+  onContentSizeChange: PropTypes.func,
   onFocus: PropTypes.func,
   textBlurColor: PropTypes.string,
   textColor: PropTypes.string.isRequired,
