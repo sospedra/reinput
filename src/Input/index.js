@@ -18,7 +18,7 @@ export default class Input extends React.Component {
   }
 
   componentWillReceiveProps (nextProps: Object) {
-    if (this.props.text !== nextProps.value) {
+    if (this.state.text !== nextProps.value) {
       nextProps.value.length !== 0
         ? this.elements.floatingLabel.floatLabel()
         : this.elements.floatingLabel.sinkLabel()
@@ -101,13 +101,13 @@ export default class Input extends React.Component {
             this.setState({ text })
             onChangeText && onChangeText(text)
           }}
-          onChange={(event) => {
-            if (autoGrow) {
+          onContentSizeChange={(event) => {
+            if (autoGrow && event.nativeEvent.contentSize) {
               this.setState({
                 height: event.nativeEvent.contentSize.height
               })
             }
-            onChange && onChange(event)
+            onContentSizeChange && onContentSizeChange(event)
           }}
           ref={(ref) => { this.elements.input = ref }}
           value={this.state.text}
