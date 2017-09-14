@@ -10,6 +10,7 @@ A React Native TextInput with style 😎
 ### Installation
 
 `npm install --save reinput`
+
 `yarn add reinput`
 
 ### Usage
@@ -35,6 +36,8 @@ onto the material design patterns. This style layer over the regular `TextInput`
 paves the way towards and easier and faster development.
 
 ### Credits
+
+Style patterns are mainly based on [Material Design](https://material.io/guidelines/components/text-fields.html#); properly adapted for iOS.
 
 This package was inspired by the abandoned `react-native-md-input`. Including a lot
 of the unmerged PR there. And strongly improving the code quality: lint and tests.
