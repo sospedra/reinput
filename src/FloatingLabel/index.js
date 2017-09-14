@@ -11,13 +11,13 @@ export default class FloatingLabel extends React.Component {
     super(props)
 
     if (props.dense) {
-      this.posTop = 12
-      this.posBottom = 32
+      this.posTop = -17
+      this.posBottom = 3
       this.fontLarge = 13
       this.fontSmall = 13
     } else {
-      this.posTop = 16
-      this.posBottom = 37
+      this.posTop = -13
+      this.posBottom = 8
       this.fontLarge = 16
       this.fontSmall = 12
     }
