@@ -6,6 +6,7 @@ export const defaultProps = {
   borderless: false,
   dense: false,
   duration: 200,
+  editable: true,
   height: undefined,
   labelColor: '#9E9E9E',
   multiline: false,
@@ -20,6 +21,7 @@ export const propTypes = {
   borderless: PropTypes.bool.isRequired,
   dense: PropTypes.bool.isRequired,
   duration: PropTypes.number.isRequired,
+  editable: PropTypes.bool.isRequired,
   height: PropTypes.number,
   highlightColor: PropTypes.string,
   icon: PropTypes.oneOfType([

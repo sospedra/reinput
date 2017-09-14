@@ -31,7 +31,8 @@ export default class Underline extends React.Component {
         onLayout={this.measure}
         style={[
           styles.underlineWrapper,
-          { backgroundColor: this.props.borderColor }
+          { borderColor: this.props.borderColor },
+          !this.props.editable && styles.disabled
         ]}
       >
         <Animated.View

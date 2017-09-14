@@ -1,8 +1,11 @@
-import { StyleSheet } from 'react-native'
+import { Platform, StyleSheet } from 'react-native'
 
 export default StyleSheet.create({
   underlineWrapper: {
     alignItems: 'center',
-    height: 1
+    borderBottomWidth: 1
+  },
+  disabled: {
+    borderStyle: Platform.OS === 'ios' ? 'solid' : 'dotted'
   }
 })
