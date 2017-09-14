@@ -4018,7 +4018,7 @@ regjsparser@^0.1.4:
     jsesc "~0.5.0"
 
 "reinput@file:../":
-  version "1.0.0"
+  version "1.1.0"
 
 remove-trailing-separator@^1.0.1:
   version "1.1.0"

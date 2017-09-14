@@ -22,10 +22,22 @@ export const propTypes = {
   duration: PropTypes.number.isRequired,
   height: PropTypes.number,
   highlightColor: PropTypes.string,
-  inputStyle: PropTypes.object,
+  icon: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.function
+  ]),
+  inputStyle: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.number,
+    PropTypes.object
+  ]),
   label: PropTypes.string,
   labelColor: PropTypes.string.isRequired,
-  labelStyle: PropTypes.object,
+  labelStyle: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.number,
+    PropTypes.object
+  ]),
   multiline: PropTypes.bool.isRequired,
   onBlur: PropTypes.func,
   onChange: PropTypes.func,
@@ -36,5 +48,9 @@ export const propTypes = {
   textColor: PropTypes.string.isRequired,
   textFocusColor: PropTypes.string,
   value: PropTypes.string.isRequired,
-  wrapperStyle: PropTypes.object
+  style: PropTypes.oneOfType([
+    PropTypes.array,
+    PropTypes.number,
+    PropTypes.object
+  ])
 }

@@ -49,6 +49,7 @@ export default class Input extends React.Component {
       duration,
       height,
       highlightColor,
+      icon,
       inputStyle,
       label,
       labelColor,
@@ -58,11 +59,11 @@ export default class Input extends React.Component {
       onChangeText,
       onContentSizeChange,
       onFocus,
+      style,
       textBlurColor,
       textColor,
       textFocusColor,
       value,
-      wrapperStyle,
       ...props
     } = this.props
 
@@ -72,67 +73,76 @@ export default class Input extends React.Component {
         style={[
           dense ? styles.denseWrapper : styles.wrapper,
           this.state.height ? { height: undefined } : {},
-          wrapperStyle
+          style
         ]}
       >
-        <TextInput
-          style={[
-            dense ? styles.denseTextInput : styles.textInput,
-            { color: textColor },
-            this.state.isFocused && textFocusColor && { color: textFocusColor },
-            !this.state.isFocused && textBlurColor && { color: textBlurColor },
-            inputStyle,
-            this.state.height && { height: this.state.height }
-          ]}
-          multiline={multiline}
-          onFocus={() => {
-            this.setState({ isFocused: true })
-            this.elements.floatingLabel.floatLabel()
-            this.elements.underline.expandLine()
-            onFocus && onFocus()
-          }}
-          onBlur={() => {
-            this.setState({ isFocused: false })
-            !this.state.text.length && this.elements.floatingLabel.sinkLabel()
-            this.elements.underline.shrinkLine()
-            onBlur && onBlur()
-          }}
-          onChangeText={(text) => {
-            this.setState({ text })
-            onChangeText && onChangeText(text)
-          }}
-          onContentSizeChange={(event) => {
-            if (autoGrow && event.nativeEvent.contentSize) {
-              this.setState({
-                height: event.nativeEvent.contentSize.height
-              })
-            }
-            onContentSizeChange && onContentSizeChange(event)
-          }}
-          ref={(ref) => { this.elements.input = ref }}
-          value={this.state.text}
-          {...props}
-        />
+        {icon && <View style={styles.icon}>
+          {React.isValidElement(icon)
+            ? React.cloneElement(icon)
+            : React.createElement(icon)
+          }
+        </View>}
 
-        <Underline
-          ref={(ref) => { this.elements.underline = ref }}
-          highlightColor={borderless ? 'transparent' : highlightColor}
-          duration={duration}
-          borderColor={borderless ? 'transparent' : borderColor}
-        />
+        <View style={styles.expand}>
+          <TextInput
+            style={[
+              dense ? styles.denseTextInput : styles.textInput,
+              { color: textColor },
+              this.state.isFocused && textFocusColor && { color: textFocusColor },
+              !this.state.isFocused && textBlurColor && { color: textBlurColor },
+              inputStyle,
+              this.state.height && { height: this.state.height }
+            ]}
+            multiline={multiline}
+            onFocus={() => {
+              this.setState({ isFocused: true })
+              this.elements.floatingLabel.floatLabel()
+              this.elements.underline.expandLine()
+              onFocus && onFocus()
+            }}
+            onBlur={() => {
+              this.setState({ isFocused: false })
+              !this.state.text.length && this.elements.floatingLabel.sinkLabel()
+              this.elements.underline.shrinkLine()
+              onBlur && onBlur()
+            }}
+            onChangeText={(text) => {
+              this.setState({ text })
+              onChangeText && onChangeText(text)
+            }}
+            onContentSizeChange={(event) => {
+              if (autoGrow && event.nativeEvent.contentSize) {
+                this.setState({
+                  height: event.nativeEvent.contentSize.height
+                })
+              }
+              onContentSizeChange && onContentSizeChange(event)
+            }}
+            ref={(ref) => { this.elements.input = ref }}
+            value={this.state.text}
+            {...props}
+          />
 
-        <FloatingLabel
-          isFocused={this.state.isFocused}
-          ref={(ref) => { this.elements.floatingLabel = ref }}
-          focusHandler={this.focus.bind(this)}
-          label={label}
-          labelColor={labelColor}
-          highlightColor={highlightColor}
-          duration={duration}
-          dense={dense}
-          hasValue={!!this.state.text.length}
-          style={labelStyle}
-        />
+          <Underline
+            ref={(ref) => { this.elements.underline = ref }}
+            highlightColor={borderless ? 'transparent' : highlightColor}
+            duration={duration}
+            borderColor={borderless ? 'transparent' : borderColor}
+          />
+
+          <FloatingLabel
+            isFocused={this.state.isFocused}
+            ref={(ref) => { this.elements.floatingLabel = ref }}
+            focusHandler={this.focus.bind(this)}
+            label={label}
+            labelColor={labelColor}
+            highlightColor={highlightColor}
+            duration={duration}
+            dense={dense}
+            hasValue={!!this.state.text.length}
+            style={labelStyle}
+          />
+        </View>
       </View>
     )
   }

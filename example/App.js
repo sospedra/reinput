@@ -9,16 +9,24 @@ export default class example extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <View style={{ flexDirection: 'row' }}>
-          <Text>Ico</Text>
-          <Reinput
-            label='Reinput'
-            highlightColor='blue'
-            borderless
-          />
-        </View>
+        <Reinput
+          label='Reinput'
+          highlightColor='blue'
+          icon={Icon}
+          style={{ marginHorizontal: 24 }}
+        />
       </View>
     )
+  }
+}
+
+class Icon extends React.Component {
+  render () {
+    return <View style={{
+      backgroundColor: 'cadetblue',
+      width: 24,
+      height: 24
+    }} />
   }
 }
 

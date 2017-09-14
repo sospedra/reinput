@@ -6,13 +6,25 @@ export default StyleSheet.create({
     paddingBottom: 7,
     paddingTop: 30,
     position: 'relative',
-    flex: 1
+    alignSelf: 'stretch',
+    flexDirection: 'row'
   },
   denseWrapper: {
     height: 60,
     paddingBottom: 4,
     paddingTop: 28,
-    position: 'relative'
+    position: 'relative',
+    alignSelf: 'stretch',
+    flexDirection: 'row'
+  },
+  icon: {
+    width: 24,
+    marginHorizontal: 16,
+    alignItems: 'center',
+    justifyContent: 'center'
+  },
+  expand: {
+    flex: 1
   },
   textInput: {
     fontSize: 16,
