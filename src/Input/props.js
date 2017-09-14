@@ -22,7 +22,10 @@ export const propTypes = {
   duration: PropTypes.number.isRequired,
   height: PropTypes.number,
   highlightColor: PropTypes.string,
-  icon: PropTypes.element,
+  icon: PropTypes.oneOfType([
+    PropTypes.element,
+    PropTypes.function
+  ]),
   inputStyle: PropTypes.oneOfType([
     PropTypes.array,
     PropTypes.number,

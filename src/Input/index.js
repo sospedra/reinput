@@ -77,7 +77,10 @@ export default class Input extends React.Component {
         ]}
       >
         {icon && <View style={styles.icon}>
-          {icon}
+          {React.isValidElement(icon)
+            ? React.cloneElement(icon)
+            : React.createElement(icon)
+          }
         </View>}
 
         <View style={styles.expand}>
