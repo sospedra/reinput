@@ -47,6 +47,7 @@ export default class Input extends React.Component {
       borderless,
       dense,
       duration,
+      editable,
       height,
       highlightColor,
       icon,
@@ -93,7 +94,10 @@ export default class Input extends React.Component {
               inputStyle,
               this.state.height && { height: this.state.height }
             ]}
+            editable={editable}
             multiline={multiline}
+            ref={(ref) => { this.elements.input = ref }}
+            value={this.state.text}
             onFocus={() => {
               this.setState({ isFocused: true })
               this.elements.floatingLabel.floatLabel()
@@ -118,16 +122,15 @@ export default class Input extends React.Component {
               }
               onContentSizeChange && onContentSizeChange(event)
             }}
-            ref={(ref) => { this.elements.input = ref }}
-            value={this.state.text}
             {...props}
           />
 
           <Underline
-            ref={(ref) => { this.elements.underline = ref }}
-            highlightColor={borderless ? 'transparent' : highlightColor}
-            duration={duration}
             borderColor={borderless ? 'transparent' : borderColor}
+            duration={duration}
+            editable={editable}
+            highlightColor={borderless ? 'transparent' : highlightColor}
+            ref={(ref) => { this.elements.underline = ref }}
           />
 
           <FloatingLabel
