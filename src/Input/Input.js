@@ -2,7 +2,7 @@ import React from 'react'
 import { View, TextInput } from 'react-native'
 
 import Label, { pickLabelProps } from './Label'
-import Placeholder from './Placeholder'
+import Placeholder, { pickPlaceholderProps } from './Placeholder'
 import Underline from './Underline'
 import ErrorHelper from './ErrorHelper'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
@@ -65,34 +65,12 @@ export default class Input extends React.Component {
       errorColor,
       errorFontSize,
       errorPaddingTop,
-      fontFamily,
-      fontSize,
-      fontWeight,
-      paddingBottom,
-      paddingLeft,
-      paddingRight,
-      paddingTop,
-      placeholder,
-      placeholderColor,
       underlineActiveColor,
       underlineActiveHeight,
       underlineColor,
       underlineDuration,
       underlineHeight
     } = this.props
-    const placeholderProps = {
-      focused,
-      fontFamily,
-      fontSize,
-      fontWeight,
-      hasValue,
-      paddingBottom,
-      paddingLeft,
-      paddingRight,
-      paddingTop,
-      placeholder,
-      placeholderColor
-    }
     const underlineProps = {
       activeColor,
       error,
@@ -113,8 +91,8 @@ export default class Input extends React.Component {
 
     return (
       <View style={styles.container(this.props)}>
-        <Label {...pickLabelProps(this.props)} />
-        {placeholder ? <Placeholder {...placeholderProps} /> : null}
+        <Label {...pickLabelProps({...this.props, hasValue, focused})} />
+        <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
         <TextInput
           {...pickTextInputProps(this.props)}
           onBlur={this.handleBlur}
@@ -122,7 +100,7 @@ export default class Input extends React.Component {
           onContentSizeChange={this.handleContentSizeChange}
           onFocus={this.handleFocus}
           style={styles.input(this.props, this.state.height)}
-          underlineColorAndroid="transparent"
+          underlineColorAndroid='transparent'
           value={value}
         />
         <Underline {...underlineProps} />
