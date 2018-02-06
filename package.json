@@ -41,6 +41,7 @@
     "test": "npm run test:lint"
   },
   "dependencies": {
-    "lodash.pick": "^4.4.0"
+    "lodash.pick": "^4.4.0",
+    "mayre": "^3.2.3"
   }
 }

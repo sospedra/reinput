@@ -11,22 +11,9 @@ export default class example extends Component {
         </Text>
         <Reinput
           label='Reinput'
-          highlightColor='blue'
-          icon={Icon}
-          style={{ marginHorizontal: 24 }}
         />
       </View>
     )
-  }
-}
-
-class Icon extends React.Component {
-  render () {
-    return <View style={{
-      backgroundColor: 'cadetblue',
-      width: 24,
-      height: 24
-    }} />
   }
 }
 
