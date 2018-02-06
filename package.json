@@ -39,5 +39,8 @@
     "precommit": "npm test",
     "test:lint": "eslint src",
     "test": "npm run test:lint"
+  },
+  "dependencies": {
+    "lodash.pick": "^4.4.0"
   }
 }

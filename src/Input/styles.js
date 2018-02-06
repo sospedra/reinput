@@ -1,42 +1,43 @@
-import { StyleSheet } from 'react-native'
+import { Platform } from 'react-native'
 
-export default StyleSheet.create({
-  wrapper: {
-    height: 72,
-    paddingBottom: 7,
-    paddingTop: 30,
-    position: 'relative',
-    alignSelf: 'stretch',
-    flexDirection: 'row'
-  },
-  denseWrapper: {
-    height: 60,
-    paddingBottom: 4,
-    paddingTop: 28,
-    position: 'relative',
-    alignSelf: 'stretch',
-    flexDirection: 'row'
-  },
-  icon: {
-    width: 24,
-    marginHorizontal: 16,
-    alignItems: 'center',
-    justifyContent: 'center'
-  },
-  expand: {
-    flex: 1
-  },
-  textInput: {
-    fontSize: 16,
-    height: 34,
-    lineHeight: 34,
-    textAlignVertical: 'top'
-  },
-  denseTextInput: {
-    fontSize: 13,
-    height: 27,
-    lineHeight: 24,
-    paddingBottom: 3,
-    textAlignVertical: 'top'
+import pick from '../services/pick'
+
+export const SCALE_FACTOR = 1.5
+
+export const container = (props) => {
+  return pick(props, [
+    'marginBottom',
+    'marginLeft',
+    'marginRight',
+    'marginTop'
+  ])
+}
+
+export const input = (props = {}, stateHeight) => {
+  const autogrowHeight = (props.multiline && props.height) ? props.height : stateHeight
+  const multilineHeight = props.multiline ? autogrowHeight : props.fontSize * SCALE_FACTOR
+  const height = props.paddingTop + props.paddingBottom + multilineHeight
+  const styles = pick(props, [
+    'color',
+    'fontFamily',
+    'fontSize',
+    'fontWeight',
+    'maxHeight',
+    'minHeight',
+    'paddingBottom',
+    'paddingLeft',
+    'paddingRight',
+    'paddingTop'
+  ])
+
+  return {
+    ...styles,
+    ...Platform.select({
+      ios: { height },
+      android: {
+        height,
+        textAlignVertical: 'top'
+      }
+    })
   }
-})
+}

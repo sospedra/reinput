@@ -1,80 +1,58 @@
 import React from 'react'
 import { Text, Animated } from 'react-native'
 
-export default class Label extends React.Component {
+import { defaultProps, propTypes } from './props'
+import * as styles from './styles'
+
+export default class ReinputLabel extends React.Component {
   static propTypes = propTypes
   static defaultProps = defaultProps
 
   constructor (props) {
     super(props)
 
-    const { hasValue, focused, labelActiveScale, labelActiveTop } = props
+    const isFocused = props.hasValue || props.focused
 
     this.state = {
-      animatedScale: new Animated.Value(hasValue || focused ? labelActiveScale : 1),
-      animatedTranslate: new Animated.Value(hasValue || focused ? labelActiveTop : 0)
+      animatedScale: new Animated.Value(isFocused ? props.labelActiveScale : 1),
+      animatedTranslate: new Animated.Value(isFocused ? props.labelActiveTop : 0)
     }
   }
 
-  componentWillReceiveProps = nextProps => {
-    let { animatedScale, animatedTranslate } = this.state
-    let { labelDuration, labelActiveScale, labelActiveTop, hasValue, focused } = nextProps
+  componentWillReceiveProps (props) {
+    const { animatedScale, animatedTranslate } = this.state
+    const { labelDuration, labelActiveScale, labelActiveTop, hasValue, focused } = props
+    const hasValueChanged = this.props.hasValue !== hasValue
+    const focusedChanged = this.props.focused !== focused
+    const isFocused = hasValue || focused
 
-    if (this.props.hasValue !== hasValue || this.props.focused !== focused) {
+    if (hasValueChanged || focusedChanged) {
       Animated.timing(animatedScale, {
-        toValue: hasValue || focused ? labelActiveScale : 1,
         duration: labelDuration,
+        toValue: isFocused ? labelActiveScale : 1,
         useNativeDriver: true
       }).start()
 
       Animated.timing(animatedTranslate, {
-        toValue: hasValue || focused ? labelActiveTop : 0,
         duration: labelDuration,
+        toValue: isFocused ? labelActiveTop : 0,
         useNativeDriver: true
       }).start()
     }
   }
 
   render () {
-    const { animatedScale, animatedTranslate } = this.state
-    const {
-      focused,
-      paddingTop,
-      paddingRight,
-      paddingLeft,
-      activeColor,
-      fontSize,
-      fontFamily,
-      fontWeight,
-      label,
-      labelColor,
-      labelActiveColor,
-      error,
-      errorColor
-    } = this.props
-
     return (
       <Animated.View
-        style={{
-          position: 'absolute',
-          width: '200%',
-          marginLeft: '-100%',
-          top: paddingTop,
-          transform: [{ translateY: animatedTranslate }, { scale: animatedScale }]
-        }}
-        numberOfLines={1}>
-        <Text
-          style={{
-            left: '50%',
-            top: 0,
-            paddingRight,
-            paddingLeft,
-            color: error ? errorColor : focused ? activeColor || labelActiveColor : labelColor,
-            fontFamily,
-            fontSize,
-            fontWeight
-          }}>
-          {label}
+        numberOfLines={1}
+        style={styles.container({
+          scale: this.state.animatedScale,
+          top: this.props.paddingTop,
+          translateY: this.state.animatedTranslate
+        })}
+      >
+        <Text style={styles.label(this.props)}>
+          {this.props.label}
         </Text>
       </Animated.View>
     )

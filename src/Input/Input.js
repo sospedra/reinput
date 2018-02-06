@@ -1,11 +1,12 @@
 import React from 'react'
-import { View, TextInput, Platform } from 'react-native'
+import { View, TextInput } from 'react-native'
 
-import Label from './Label'
+import Label, { pickLabelProps } from './Label'
 import Placeholder from './Placeholder'
 import Underline from './Underline'
 import ErrorHelper from './ErrorHelper'
-import { defaultProps, propTypes } from './props'
+import { defaultProps, propTypes, pickTextInputProps } from './props'
+import * as styles from './styles'
 
 export default class Input extends React.Component {
   static propTypes = propTypes
@@ -17,7 +18,7 @@ export default class Input extends React.Component {
     this.state = {
       value: null,
       focused: false,
-      height: props.fontSize * 1.5
+      height: props.fontSize * styles.SCALE_FACTOR
     }
   }
 
@@ -36,7 +37,6 @@ export default class Input extends React.Component {
   handleChangeText = (...args) => {
     const { onChangeText, value } = this.props
 
-    // Make support of uncontrolled component
     if (value == null) {
       this.setState({ value: args[0] })
     }
@@ -44,24 +44,23 @@ export default class Input extends React.Component {
     onChangeText(...args)
   }
 
-  handleContentSizeChange = event => {
+  handleContentSizeChange = (event) => {
     const { onContentSizeChange, fontSize } = this.props
     const { height } = event.nativeEvent.contentSize
 
     this.setState({
-      height: Math.max(fontSize * 1.5, Math.ceil(height))
+      height: Math.max(fontSize * styles.SCALE_FACTOR, Math.ceil(height))
     })
 
     onContentSizeChange(event)
   }
 
   render () {
-    let { focused, height } = this.state
+    const { focused } = this.state
     const value = this.props.value != null ? this.props.value : this.state.value
     const hasValue = value && value.length > 0
     const {
       activeColor,
-      color,
       error,
       errorColor,
       errorFontSize,
@@ -69,18 +68,6 @@ export default class Input extends React.Component {
       fontFamily,
       fontSize,
       fontWeight,
-      label,
-      labelActiveColor,
-      labelActiveScale,
-      labelActiveTop,
-      labelColor,
-      labelDuration,
-      marginBottom,
-      marginLeft,
-      marginRight,
-      marginTop,
-      maxHeight,
-      minHeight,
       paddingBottom,
       paddingLeft,
       paddingRight,
@@ -91,29 +78,8 @@ export default class Input extends React.Component {
       underlineActiveHeight,
       underlineColor,
       underlineDuration,
-      underlineHeight,
-      ...props
+      underlineHeight
     } = this.props
-    const labelProps = {
-      activeColor,
-      error,
-      errorColor,
-      focused,
-      fontFamily,
-      fontSize,
-      fontWeight,
-      hasValue,
-      label,
-      labelActiveColor,
-      labelActiveScale,
-      labelActiveTop,
-      labelColor,
-      labelDuration,
-      paddingBottom,
-      paddingLeft,
-      paddingRight,
-      paddingTop
-    }
     const placeholderProps = {
       focused,
       fontFamily,
@@ -138,35 +104,6 @@ export default class Input extends React.Component {
       underlineDuration,
       underlineHeight
     }
-    const containerStyle = {
-      marginBottom,
-      marginLeft,
-      marginRight,
-      marginTop
-    }
-    if (props.multiline && props.height) {
-      // Disable autogrow if height prop
-      height = props.height
-    }
-    const inputStyle = {
-      color,
-      fontFamily,
-      fontSize,
-      fontWeight,
-      maxHeight,
-      minHeight,
-      paddingBottom,
-      paddingLeft,
-      paddingRight,
-      paddingTop,
-      ...Platform.select({
-        ios: { height: paddingTop + paddingBottom + (props.multiline ? height : fontSize * 1.5) },
-        android: {
-          height: props.multiline ? height : fontSize * 1.5 + paddingTop + paddingBottom,
-          textAlignVertical: 'top'
-        }
-      })
-    }
     const errorProps = {
       error,
       errorColor,
@@ -175,16 +112,16 @@ export default class Input extends React.Component {
     }
 
     return (
-      <View style={containerStyle}>
-        <Label {...labelProps} />
+      <View style={styles.container(this.props)}>
+        <Label {...pickLabelProps(this.props)} />
         {placeholder ? <Placeholder {...placeholderProps} /> : null}
         <TextInput
-          {...props}
+          {...pickTextInputProps(this.props)}
           onBlur={this.handleBlur}
           onChangeText={this.handleChangeText}
           onContentSizeChange={this.handleContentSizeChange}
           onFocus={this.handleFocus}
-          style={inputStyle}
+          style={styles.input(this.props, this.state.height)}
           underlineColorAndroid="transparent"
           value={value}
         />

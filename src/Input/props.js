@@ -1,7 +1,10 @@
 import PropTypes from 'prop-types'
 import { TextInput } from 'react-native'
 
+import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
+
+const noop = () => {}
 
 export const defaultProps = {
   ...ErrorProps.defaultProps,
@@ -9,10 +12,10 @@ export const defaultProps = {
   fontSize: 15,
   fontWeight: 'normal',
   marginBottom: 8,
-  onBlur: () => {},
-  onChangeText: () => {},
-  onContentSizeChange: () => {},
-  onFocus: () => {},
+  onBlur: noop,
+  onChangeText: noop,
+  onContentSizeChange: noop,
+  onFocus: noop,
   paddingBottom: 8,
   paddingLeft: 0,
   paddingRight: 0,
@@ -43,4 +46,8 @@ export const propTypes = {
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number
+}
+
+export const pickTextInputProps = (props) => {
+  return pick(props, Object.keys(TextInput.PropTypes))
 }
