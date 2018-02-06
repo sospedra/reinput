@@ -3,7 +3,7 @@ import { View, TextInput } from 'react-native'
 
 import Label, { pickLabelProps } from './Label'
 import Placeholder, { pickPlaceholderProps } from './Placeholder'
-import Underline from './Underline'
+import Underline, { pickUnderlineProps } from './Underline'
 import ErrorHelper from './ErrorHelper'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
@@ -60,28 +60,11 @@ export default class Input extends React.Component {
     const value = this.props.value != null ? this.props.value : this.state.value
     const hasValue = value && value.length > 0
     const {
-      activeColor,
       error,
       errorColor,
       errorFontSize,
-      errorPaddingTop,
-      underlineActiveColor,
-      underlineActiveHeight,
-      underlineColor,
-      underlineDuration,
-      underlineHeight
+      errorPaddingTop
     } = this.props
-    const underlineProps = {
-      activeColor,
-      error,
-      errorColor,
-      focused,
-      underlineActiveColor,
-      underlineActiveHeight,
-      underlineColor,
-      underlineDuration,
-      underlineHeight
-    }
     const errorProps = {
       error,
       errorColor,
@@ -103,7 +86,7 @@ export default class Input extends React.Component {
           underlineColorAndroid='transparent'
           value={value}
         />
-        <Underline {...underlineProps} />
+        <Underline {...pickUnderlineProps(this.props)} />
         {error ? <ErrorHelper {...errorProps} /> : null}
       </View>
     )

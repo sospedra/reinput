@@ -1,11 +1,12 @@
-import { Platform, StyleSheet } from 'react-native'
+export const container = (props = {}) => ({
+  borderColor: props.underlineColor,
+  borderTopWidth: props.underlineHeight
+})
 
-export default StyleSheet.create({
-  underlineWrapper: {
-    alignItems: 'center',
-    borderBottomWidth: 1
-  },
-  disabled: {
-    borderStyle: Platform.OS === 'ios' ? 'solid' : 'dotted'
-  }
+export const underline = (props = {}) => ({
+  borderColor: (props.error && props.errorColor) || props.activeColor || props.underlineActiveColor,
+  borderTopWidth: props.underlineActiveHeight,
+  marginTop: -props.underlineHeight,
+  opacity: props.animatedOpacity,
+  transform: [{ scaleX: props.animatedScaleX }]
 })
