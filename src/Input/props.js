@@ -25,8 +25,8 @@ export const defaultProps = {
 }
 
 export const propTypes = {
-  ...TextInput.PropTypes,
-  ...ErrorProps.PropTypes,
+  ...TextInput.propTypes,
+  ...ErrorProps.propTypes,
   activeColor: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
@@ -50,5 +50,5 @@ export const propTypes = {
 }
 
 export const pickTextInputProps = (props) => {
-  return pick(props, Object.keys(TextInput.PropTypes))
+  return pick(props, Object.keys(TextInput.propTypes))
 }

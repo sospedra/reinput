@@ -17,7 +17,7 @@ export const label = (props = {}) => {
   const color = props.error ? props.errorColor : focusedColor
 
   return {
-    ...pick(this.props, [
+    ...pick(props, [
       'fontFamily',
       'fontSize',
       'fontWeight',

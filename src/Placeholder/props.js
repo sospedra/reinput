@@ -6,9 +6,9 @@ import pick from '../services/pick'
 export const propTypes = {
   focused: PropTypes.bool,
   fontFamily: PropTypes.string,
-  fontSize: PropTypes.string,
+  fontSize: PropTypes.number,
   fontWeight: PropTypes.string,
-  hasValue: PropTypes.number,
+  hasValue: PropTypes.bool,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,

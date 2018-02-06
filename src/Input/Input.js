@@ -1,10 +1,10 @@
 import React from 'react'
 import { View, TextInput } from 'react-native'
 
-import Label, { pickLabelProps } from './Label'
-import Placeholder, { pickPlaceholderProps } from './Placeholder'
-import Underline, { pickUnderlineProps } from './Underline'
-import Error, { pickErrorProps } from './Error'
+import Label, { pickLabelProps } from '../Label'
+import Placeholder, { pickPlaceholderProps } from '../Placeholder'
+import Underline, { pickUnderlineProps } from '../Underline'
+import Error, { pickErrorProps } from '../Error'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
@@ -58,7 +58,7 @@ export default class ReinputInput extends React.Component {
   render () {
     const { focused } = this.state
     const value = this.props.value != null ? this.props.value : this.state.value
-    const hasValue = value && value.length > 0
+    const hasValue = !!(value && value.length > 0)
 
     return (
       <View style={styles.container(this.props)}>
