@@ -20,7 +20,6 @@ import Reinput from 'reinput'
 
 const Input = () => (
   <Reinput
-    highlightColor='blue'
   />
 )
 ```
