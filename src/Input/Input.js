@@ -8,7 +8,7 @@ import Error, { pickErrorProps } from './Error'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
-export default class Input extends React.Component {
+export default class ReinputInput extends React.Component {
   static propTypes = propTypes
   static defaultProps = defaultProps
 

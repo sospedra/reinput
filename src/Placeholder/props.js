@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import { GRAY } from '../services/constants'
 import pick from '../services/pick'
 
 export const propTypes = {
@@ -17,7 +18,7 @@ export const propTypes = {
 }
 
 export const defaultProps = {
-  placeholderColor: 'gray'
+  placeholderColor: GRAY
 }
 
 export const pickPlaceholderProps = (props, value) => {

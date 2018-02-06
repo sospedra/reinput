@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import { GRAY, BLUE, DURATION } from '../services/constants'
 import pick from '../services/pick'
 
 export const propTypes = {
@@ -24,11 +25,11 @@ export const propTypes = {
 }
 
 export const defaultProps = {
-  labelDuration: 200,
-  labelColor: 'gray',
-  labelActiveColor: '#3f51b5',
+  labelActiveColor: BLUE,
   labelActiveScale: 0.8,
-  labelActiveTop: -18
+  labelActiveTop: -18,
+  labelColor: GRAY,
+  labelDuration: DURATION
 }
 
 export const pickLabelProps = (props) => {

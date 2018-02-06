@@ -1,2 +1,2 @@
-export { pickLabelProps } from './props'
 export default './Label'
+export { pickLabelProps } from './props'

@@ -1,5 +1,6 @@
 import PropTypes from 'prop-types'
 
+import { BASE_UNIT, RED, FONT_SMALL } from '../services/constants'
 import pick from '../services/pick'
 
 export const propTypes = {
@@ -10,9 +11,9 @@ export const propTypes = {
 }
 
 export const defaultProps = {
-  errorPaddingTop: 8,
-  errorColor: '#fc1f4a',
-  errorFontSize: 12
+  errorPaddingTop: BASE_UNIT,
+  errorColor: RED,
+  errorFontSize: FONT_SMALL
 }
 
 export const pickErrorProps = (props) => {

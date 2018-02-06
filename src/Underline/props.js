@@ -1,5 +1,8 @@
 import PropTypes from 'prop-types'
 
+import { BLUE, DURATION, GRAY } from '../services/constants'
+import pick from '../services/pick'
+
 export const propTypes = {
   activeColor: PropTypes.string,
   error: PropTypes.bool,
@@ -13,9 +16,13 @@ export const propTypes = {
 }
 
 export const defaultProps = {
-  underlineActiveColor: '#3f51b5',
+  underlineActiveColor: BLUE,
   underlineActiveHeight: 2,
-  underlineColor: 'gray',
-  underlineDuration: 200,
+  underlineColor: GRAY,
+  underlineDuration: DURATION,
   underlineHeight: 1
+}
+
+export const pickUnderlineProps = (props) => {
+  return pick(props, Object.keys(propTypes))
 }
