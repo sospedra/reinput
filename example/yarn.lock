@@ -4012,12 +4012,6 @@ react-devtools@^3.1.0:
     react-devtools-core "^3.1.0"
     update-notifier "^2.1.0"
 
-react-native-material-textinput@^1.1.0:
-  version "1.1.0"
-  resolved "https://registry.yarnpkg.com/react-native-material-textinput/-/react-native-material-textinput-1.1.0.tgz#98bd0916cd0693a6c138b0d8ac24265d84a987f2"
-  dependencies:
-    prop-types "^15.5.10"
-
 react-native@0.48.2:
   version "0.48.2"
   resolved "https://registry.yarnpkg.com/react-native/-/react-native-0.48.2.tgz#9907d5a73640ade3920701e7096fc109ba9cc6e4"

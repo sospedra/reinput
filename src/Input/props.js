@@ -1,7 +1,7 @@
 import PropTypes from 'prop-types'
 import { TextInput } from 'react-native'
 
-import { BASE_UNIT, FONT } from '../services/constants'
+import { BASE_UNIT, BLACK, FONT } from '../services/constants'
 import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
 
@@ -9,7 +9,7 @@ const noop = () => {}
 
 export const defaultProps = {
   ...ErrorProps.defaultProps,
-  color: 'black',
+  color: BLACK,
   fontSize: FONT,
   fontWeight: 'normal',
   marginBottom: BASE_UNIT,

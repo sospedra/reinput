@@ -5,7 +5,7 @@ import pick from '../services/pick'
 
 export const propTypes = {
   activeColor: PropTypes.string,
-  error: PropTypes.bool,
+  error: PropTypes.string,
   errorColor: PropTypes.string,
   focused: PropTypes.bool,
   underlineActiveColor: PropTypes.string,

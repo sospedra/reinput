@@ -1,25 +1,6 @@
 import React, { Component } from 'react'
 import { StyleSheet, Text, View } from 'react-native'
 import Reinput from 'reinput'
-import TextInput from 'react-native-material-textinput'
-
-class Exi extends Component {
-  state = {
-    name: ''
-  }
-
-  render () {
-    let { name } = this.state
-
-    return (
-      <TextInput
-        label="Name"
-        value={name}
-        onChangeText={name => this.setState({ name })}
-      />
-    )
-  }
-}
 
 export default class example extends Component {
   render () {
@@ -29,35 +10,30 @@ export default class example extends Component {
           Welcome to React Native!
         </Text>
         <Reinput
-          label='holis'
-          icon={<Text>ho</Text>}
+          label='👋'
         />
         <Reinput
-          label='holis'
+          label='Easy align icons'
+          icon={<Text>ICO</Text>}
         />
         <Reinput
-          label='holis'
-          icon={<Text>ho</Text>}
-          value='potato'
+          label='Redish'
+          error='Something broken here 🙀'
         />
         <Reinput
-          label='holis'
-          icon={<Text>ho</Text>}
-          error
+          label='I love the'
+          value='potatoes'
         />
-        <View style={styles.bg}>
-          <Exi />
-        </View>
+        <Reinput
+          label='I not love the'
+          defaultValue='carrots'
+        />
       </View>
     )
   }
 }
 
 const styles = StyleSheet.create({
-  bg: {
-    // height: 80,
-    width: '100%'
-  },
   container: {
     flex: 1,
     justifyContent: 'center',

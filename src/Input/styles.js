@@ -1,5 +1,6 @@
 import { Platform } from 'react-native'
 
+import { BASE_UNIT } from '../services/constants'
 import pick from '../services/pick'
 
 export const SCALE_FACTOR = 1.5
@@ -7,7 +8,7 @@ export const SCALE_FACTOR = 1.5
 export const row = {
   alignItems: 'center',
   flexDirection: 'row',
-  height: 56
+  height: BASE_UNIT * 8
 }
 
 export const container = (props) => ({

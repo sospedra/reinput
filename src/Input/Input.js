@@ -56,10 +56,14 @@ export default class ReinputInput extends React.Component {
     onContentSizeChange(event)
   }
 
+  hasValidValue (value) {
+    return !!(value && value.length > 0)
+  }
+
   render () {
     const { focused } = this.state
     const value = this.props.value != null ? this.props.value : this.state.value
-    const hasValue = !!(value && value.length > 0)
+    const hasValue = this.hasValidValue(value) || this.hasValidValue(this.props.defaultValue)
 
     return (
       <View style={styles.row}>

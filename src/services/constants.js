@@ -1,4 +1,5 @@
 export const BASE_UNIT = 8
+export const BLACK = '#000000'
 export const BLUE = '#3f51b5'
 export const DURATION = 200
 export const FONT = 15
