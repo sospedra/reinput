@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, View } from 'react-native'
 import Reinput from 'reinput'
 
 export default class example extends Component {
@@ -7,26 +7,27 @@ export default class example extends Component {
     return (
       <View style={styles.container}>
         <Text style={styles.welcome}>
-          Welcome to React Native!
+          Awesome inputs with Reinput
         </Text>
         <Reinput
-          label='👋'
+          label='Cool by default input 👋'
         />
         <Reinput
           label='Easy align icons'
-          icon={<Text>ICO</Text>}
+          icon={<Image source={require('./icon.png')} />}
         />
         <Reinput
           label='Redish'
           error='Something broken here 🙀'
         />
         <Reinput
-          label='I love the'
-          value='potatoes'
+          label='Adjust any style'
+          underlineDuration={1000}
+          activeColor='#2E7D32'
         />
         <Reinput
-          label='I not love the'
-          defaultValue='carrots'
+          label='I do not like the'
+          defaultValue='🥕🥕🥕'
         />
       </View>
     )
@@ -38,7 +39,8 @@ const styles = StyleSheet.create({
     flex: 1,
     justifyContent: 'center',
     alignItems: 'center',
-    backgroundColor: '#F5FCFF'
+    backgroundColor: '#F5FCFF',
+    padding: 16
   },
   welcome: {
     fontSize: 20,
