@@ -13,6 +13,12 @@ A React Native TextInput with material style 😎
 
 `yarn add reinput`
 
+### Motivation
+
+Styling react-native inputs can be cumbersome. And most of them heavily relies
+onto the material design patterns. This style layer over the regular `TextInput`
+paves the way towards and easier and faster development.
+
 ### Usage
 
 ```js
@@ -101,11 +107,10 @@ errorPaddingTop       | Number             | `8`
 
 And **also** all the [TextInput](https://facebook.github.io/react-native/docs/textinput.html#props) properties will work.
 
-### Motivation
+### Example
 
-Styling react-native inputs can be cumbersome. And most of them heavily relies
-onto the material design patterns. This style layer over the regular `TextInput`
-paves the way towards and easier and faster development.
+I'm working on an expo demo. So far, you can clone the project and check the example dir.
+It's the one of the gif ;)
 
 ### Credits
 

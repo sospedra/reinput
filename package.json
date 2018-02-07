@@ -1,7 +1,7 @@
 {
   "name": "reinput",
-  "version": "1.1.0",
-  "description": "React Native input",
+  "version": "2.0.0",
+  "description": "A React Native TextInput with material style 😎",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,8 @@
     "input",
     "animation",
     "TextInput",
-    "material-design"
+    "material-design",
+    "material"
   ],
   "files": [
     "src/*"
@@ -38,13 +39,12 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3"
   },
+  "dependencies": {
+    "mayre": "^3.2.3"
+  },
   "scripts": {
     "precommit": "npm test",
     "test:lint": "eslint src",
     "test": "npm run test:lint"
-  },
-  "dependencies": {
-    "lodash.pick": "^4.4.0",
-    "mayre": "^3.2.3"
   }
 }
