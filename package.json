@@ -1,7 +1,7 @@
 {
   "name": "reinput",
-  "version": "1.1.0",
-  "description": "React Native input",
+  "version": "2.0.0",
+  "description": "A React Native TextInput with material style 😎",
   "main": "./src/index.js",
   "repository": {
     "type": "git",
@@ -12,7 +12,11 @@
     "input",
     "animation",
     "TextInput",
-    "material-design"
+    "material-design",
+    "material"
+  ],
+  "files": [
+    "src/*"
   ],
   "bugs": {
     "url": "https://github.com/sospedra/reinput/issues"
@@ -34,6 +38,9 @@
     "eslint-plugin-react": "^7.3.0",
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3"
+  },
+  "dependencies": {
+    "mayre": "^3.2.3"
   },
   "scripts": {
     "precommit": "npm test",

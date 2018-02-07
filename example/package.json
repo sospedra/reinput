@@ -1,27 +1,32 @@
 {
-	"name": "example",
-	"version": "0.0.1",
+	"name": "reinput-demo",
+	"version": "1.0.0",
 	"private": true,
-	"scripts": {
-		"start": "node node_modules/react-native/local-cli/cli.js start",
-		"test": "jest",
-		"dev": "react-devtools",
-		"reinstall": "yarn remove reinput && yarn add file:../ && rm -rf node_modules/reinput/example"
-	},
 	"dependencies": {
 		"react": "16.0.0-alpha.12",
-		"react-devtools": "^2.5.0",
 		"react-native": "0.48.2",
 		"reinput": "file:../"
 	},
 	"devDependencies": {
 		"babel-jest": "21.0.2",
 		"babel-preset-react-native": "3.0.2",
+		"electron": "1.7.12",
 		"eslint-plugin-import": "^2.7.0",
 		"jest": "21.0.2",
+		"react-devtools": "^3.1.0",
 		"react-test-renderer": "16.0.0-alpha.12"
 	},
 	"jest": {
 		"preset": "react-native"
+	},
+	"scripts": {
+		"postinstall": "mkdir -p node_modules/reinput && npm run reinstall",
+		"start": "node node_modules/react-native/local-cli/cli.js start",
+		"test": "jest",
+		"dev": "react-devtools",
+		"copy": "npm run copy:src && npm run copy:package",
+		"copy:src": "cp -R ../src ./node_modules/reinput/src",
+		"copy:package": "cp ../package* ./node_modules/reinput/",
+		"reinstall": "rm -rf node_modules/reinput/* && npm run copy"
 	}
 }

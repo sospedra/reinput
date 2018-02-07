@@ -1,58 +1,54 @@
 import PropTypes from 'prop-types'
+import { TextInput } from 'react-native'
+
+import { BASE_UNIT, BLACK, FONT } from '../services/constants'
+import pick from '../services/pick'
+import * as ErrorProps from '../Error/props'
+
+const noop = () => {}
 
 export const defaultProps = {
-  autoGrow: false,
-  borderColor: '#E0E0E0',
-  borderless: false,
-  dense: false,
-  duration: 200,
-  editable: true,
-  height: undefined,
-  labelColor: '#9E9E9E',
-  multiline: false,
-  textColor: '#000',
-  underlineColorAndroid: 'rgba(0,0,0,0)',
-  value: ''
+  ...ErrorProps.defaultProps,
+  color: BLACK,
+  fontSize: FONT,
+  fontWeight: 'normal',
+  marginBottom: BASE_UNIT,
+  onBlur: noop,
+  onChangeText: noop,
+  onContentSizeChange: noop,
+  onFocus: noop,
+  paddingBottom: BASE_UNIT,
+  paddingLeft: 0,
+  paddingRight: 0,
+  paddingTop: 20,
+  value: null
 }
 
 export const propTypes = {
-  autoGrow: PropTypes.bool.isRequired,
-  borderColor: PropTypes.string.isRequired,
-  borderless: PropTypes.bool.isRequired,
-  dense: PropTypes.bool.isRequired,
-  duration: PropTypes.number.isRequired,
-  editable: PropTypes.bool.isRequired,
+  ...TextInput.propTypes,
+  ...ErrorProps.propTypes,
+  activeColor: PropTypes.string,
+  color: PropTypes.string,
+  fontFamily: PropTypes.string,
+  fontSize: PropTypes.number,
+  fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
-  highlightColor: PropTypes.string,
-  icon: PropTypes.oneOfType([
-    PropTypes.element,
-    PropTypes.function
-  ]),
-  inputStyle: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.number,
-    PropTypes.object
-  ]),
-  label: PropTypes.string,
-  labelColor: PropTypes.string.isRequired,
-  labelStyle: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.number,
-    PropTypes.object
-  ]),
-  multiline: PropTypes.bool.isRequired,
+  marginBottom: PropTypes.number,
+  marginLeft: PropTypes.number,
+  marginRight: PropTypes.number,
+  marginTop: PropTypes.number,
+  maxHeight: PropTypes.number,
+  minHeight: PropTypes.number,
   onBlur: PropTypes.func,
-  onChange: PropTypes.func,
   onChangeText: PropTypes.func,
   onContentSizeChange: PropTypes.func,
   onFocus: PropTypes.func,
-  textBlurColor: PropTypes.string,
-  textColor: PropTypes.string.isRequired,
-  textFocusColor: PropTypes.string,
-  value: PropTypes.string.isRequired,
-  style: PropTypes.oneOfType([
-    PropTypes.array,
-    PropTypes.number,
-    PropTypes.object
-  ])
+  paddingBottom: PropTypes.number,
+  paddingLeft: PropTypes.number,
+  paddingRight: PropTypes.number,
+  paddingTop: PropTypes.number
+}
+
+export const pickTextInputProps = (props) => {
+  return pick(props, Object.keys(TextInput.propTypes))
 }
