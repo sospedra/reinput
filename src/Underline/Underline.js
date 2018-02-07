@@ -4,10 +4,11 @@ import { View, Animated } from 'react-native'
 import { defaultProps, propTypes } from './props'
 import * as styles from './styles'
 
-const SCALE_DEFAULT = 0.01
-const SCALE_ACTIVE = 1
-const OPACITY_DEFAULT = 0
+const DURATION_DEFAULT = 0
 const OPACITY_ACTIVE = 1
+const OPACITY_DEFAULT = 0
+const SCALE_ACTIVE = 1
+const SCALE_DEFAULT = 0.01
 
 export default class ReinputUnderline extends React.Component {
   static propTypes = propTypes
@@ -29,8 +30,8 @@ export default class ReinputUnderline extends React.Component {
   animateActive () {
     Animated.parallel([
       Animated.timing(this.state.animatedOpacity, {
-        duration: 0,
-        toValue: SCALE_ACTIVE,
+        duration: DURATION_DEFAULT,
+        toValue: OPACITY_ACTIVE,
         useNativeDriver: true
       }),
       Animated.timing(this.state.animatedScaleX, {
@@ -43,8 +44,13 @@ export default class ReinputUnderline extends React.Component {
 
   animateDefault () {
     Animated.sequence([
+      Animated.timing(this.state.animatedScaleX, {
+        duration: this.props.underlineDuration,
+        toValue: SCALE_DEFAULT,
+        useNativeDriver: true
+      }),
       Animated.timing(this.state.animatedOpacity, {
-        duration: 0,
+        duration: DURATION_DEFAULT,
         toValue: OPACITY_DEFAULT,
         useNativeDriver: true
       })
