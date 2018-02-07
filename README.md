@@ -7,7 +7,7 @@
 
 A React Native TextInput with material style 😎
 
-<img alt="reinput-gif" style="width: 500px;" src="https://user-images.githubusercontent.com/3116899/35905643-224d97fc-0be8-11e8-8a93-9f5e676b487f.gif" />
+<img alt="reinput-gif" width="500" src="https://user-images.githubusercontent.com/3116899/35905643-224d97fc-0be8-11e8-8a93-9f5e676b487f.gif" />
 
 ### Installation
 
