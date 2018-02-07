@@ -7,6 +7,8 @@
 
 A React Native TextInput with material style 😎
 
+![reinput](https://user-images.githubusercontent.com/3116899/35905643-224d97fc-0be8-11e8-8a93-9f5e676b487f.gif)
+
 ### Installation
 
 `npm install --save reinput`
