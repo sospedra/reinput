@@ -1,10 +1,11 @@
 import React from 'react'
 import { View, TextInput } from 'react-native'
 
+import Error, { pickErrorProps } from '../Error'
+import Icon, { pickIconProps } from '../Icon'
 import Label, { pickLabelProps } from '../Label'
 import Placeholder, { pickPlaceholderProps } from '../Placeholder'
 import Underline, { pickUnderlineProps } from '../Underline'
-import Error, { pickErrorProps } from '../Error'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
@@ -61,21 +62,24 @@ export default class ReinputInput extends React.Component {
     const hasValue = !!(value && value.length > 0)
 
     return (
-      <View style={styles.container(this.props)}>
-        <Label {...pickLabelProps({...this.props, hasValue, focused})} />
-        <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
-        <TextInput
-          {...pickTextInputProps(this.props)}
-          onBlur={this.handleBlur}
-          onChangeText={this.handleChangeText}
-          onContentSizeChange={this.handleContentSizeChange}
-          onFocus={this.handleFocus}
-          style={styles.input(this.props, this.state.height)}
-          underlineColorAndroid='transparent'
-          value={value}
-        />
-        <Underline {...pickUnderlineProps({...this.props, focused})} />
-        <Error {...pickErrorProps(this.props)} />
+      <View style={styles.row}>
+        <Icon {...pickIconProps(this.props)} />
+        <View style={styles.container(this.props)}>
+          <Label {...pickLabelProps({...this.props, hasValue, focused})} />
+          <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
+          <TextInput
+            {...pickTextInputProps(this.props)}
+            onBlur={this.handleBlur}
+            onChangeText={this.handleChangeText}
+            onContentSizeChange={this.handleContentSizeChange}
+            onFocus={this.handleFocus}
+            style={styles.input(this.props, this.state.height)}
+            underlineColorAndroid='transparent'
+            value={value}
+          />
+          <Underline {...pickUnderlineProps({...this.props, focused})} />
+          <Error {...pickErrorProps(this.props)} />
+        </View>
       </View>
     )
   }

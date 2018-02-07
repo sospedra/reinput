@@ -28,9 +28,23 @@ export default class example extends Component {
         <Text style={styles.welcome}>
           Welcome to React Native!
         </Text>
-        <View style={styles.bg}>
-          <Reinput label='holis' />
-        </View>
+        <Reinput
+          label='holis'
+          icon={<Text>ho</Text>}
+        />
+        <Reinput
+          label='holis'
+        />
+        <Reinput
+          label='holis'
+          icon={<Text>ho</Text>}
+          value='potato'
+        />
+        <Reinput
+          label='holis'
+          icon={<Text>ho</Text>}
+          error
+        />
         <View style={styles.bg}>
           <Exi />
         </View>
@@ -41,7 +55,7 @@ export default class example extends Component {
 
 const styles = StyleSheet.create({
   bg: {
-    height: 80,
+    // height: 80,
     width: '100%'
   },
   container: {

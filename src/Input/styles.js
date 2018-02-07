@@ -4,14 +4,21 @@ import pick from '../services/pick'
 
 export const SCALE_FACTOR = 1.5
 
-export const container = (props) => {
-  return pick(props, [
+export const row = {
+  alignItems: 'center',
+  flexDirection: 'row',
+  height: 56
+}
+
+export const container = (props) => ({
+  ...pick(props, [
     'marginBottom',
     'marginLeft',
     'marginRight',
     'marginTop'
-  ])
-}
+  ]),
+  flex: 1
+})
 
 export const input = (props = {}, stateHeight) => {
   const autogrowHeight = (props.multiline && props.height) ? props.height : stateHeight
