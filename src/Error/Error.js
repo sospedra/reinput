@@ -20,7 +20,7 @@ export default class ReinputError extends React.Component {
         }}
         or={View}
         orWith={{
-          style: styles.placeholder(),
+          style: styles.placeholder()
         }}
       />
     )
