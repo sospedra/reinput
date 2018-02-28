@@ -27,7 +27,7 @@ export const propTypes = {
 export const defaultProps = {
   labelActiveColor: BLUE,
   labelActiveScale: 0.8,
-  labelActiveTop: -18,
+  labelActiveTop: -22,
   labelColor: GRAY,
   labelDuration: DURATION
 }

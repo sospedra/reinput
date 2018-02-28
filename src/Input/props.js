@@ -20,7 +20,7 @@ export const defaultProps = {
   paddingBottom: BASE_UNIT,
   paddingLeft: 0,
   paddingRight: 0,
-  paddingTop: 20,
+  paddingTop: BASE_UNIT * 3,
   value: null
 }
 

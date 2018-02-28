@@ -8,7 +8,7 @@ export const SCALE_FACTOR = 1.5
 export const row = {
   alignItems: 'center',
   flexDirection: 'row',
-  height: BASE_UNIT * 8
+  height: BASE_UNIT * 9
 }
 
 export const container = (props) => ({
