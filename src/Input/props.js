@@ -21,6 +21,7 @@ export const defaultProps = {
   paddingLeft: 0,
   paddingRight: 0,
   paddingTop: BASE_UNIT * 3,
+  register: function () {},
   value: null
 }
 
@@ -46,7 +47,8 @@ export const propTypes = {
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
-  paddingTop: PropTypes.number
+  paddingTop: PropTypes.number,
+  register: PropTypes.func.isRequired
 }
 
 export const pickTextInputProps = (props) => {

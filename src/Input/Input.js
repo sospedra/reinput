@@ -77,6 +77,7 @@ export default class ReinputInput extends React.Component {
             onChangeText={this.handleChangeText}
             onContentSizeChange={this.handleContentSizeChange}
             onFocus={this.handleFocus}
+            ref={this.props.register}
             style={styles.input(this.props, this.state.height)}
             underlineColorAndroid='transparent'
             value={value}
