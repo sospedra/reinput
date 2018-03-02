@@ -69,20 +69,25 @@ export default class ReinputInput extends React.Component {
       <View style={styles.row}>
         <Icon {...pickIconProps(this.props)} />
         <View style={styles.container(this.props)}>
-          <Label {...pickLabelProps({...this.props, hasValue, focused})} />
-          <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
-          <TextInput
-            {...pickTextInputProps(this.props)}
-            onBlur={this.handleBlur}
-            onChangeText={this.handleChangeText}
-            onContentSizeChange={this.handleContentSizeChange}
-            onFocus={this.handleFocus}
-            ref={this.props.register}
-            style={styles.input(this.props, this.state.height)}
-            underlineColorAndroid='transparent'
-            value={value}
-          />
-          <Underline {...pickUnderlineProps({...this.props, focused})} />
+          <View
+            accessible={this.props.accessible}
+            accessiblityLabel={this.props.accessiblityLabel || this.props.label}
+          >
+            <Label {...pickLabelProps({...this.props, hasValue, focused})} />
+            <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
+            <TextInput
+              {...pickTextInputProps(this.props)}
+              onBlur={this.handleBlur}
+              onChangeText={this.handleChangeText}
+              onContentSizeChange={this.handleContentSizeChange}
+              onFocus={this.handleFocus}
+              ref={this.props.register}
+              style={styles.input(this.props, this.state.height)}
+              underlineColorAndroid='transparent'
+              value={value}
+            />
+            <Underline {...pickUnderlineProps({...this.props, focused})} />
+          </View>
           <Error {...pickErrorProps(this.props)} />
         </View>
       </View>

@@ -9,6 +9,7 @@ const noop = () => {}
 
 export const defaultProps = {
   ...ErrorProps.defaultProps,
+  accessible: true,
   color: BLACK,
   fontSize: FONT,
   fontWeight: 'normal',
