@@ -1,20 +1,50 @@
 <!DOCTYPE html>
-<html>
+<html lang="en">
   <head>
-    <title>Reinput</title>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1">
+
+    <title>Reinput — A React Native TextInput with material style 😎</title>
     <style type="text/css">
+      * {
+        box-sizing: border-box;
+      }
       html, body {
-        height: 100%;
+        min-height: 100%;
         margin: 0;
-        background: linear-gradient(to bottom, #ffc99f 0%,#ef64b6 100%);
+        background: linear-gradient(to bottom, #ffc99f 0%, #ef64b6 100%);
+        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      }
+      h1 {
+        color: #64ef9d;
+        text-align: center;
+        text-shadow: 0px 2px 1px #24292E;
+      }
+      h2 {
+        color: #24292E;
+        text-align: center;
       }
       .container {
+        padding: 10%;
+        display: flex;
+        justify-content: space-around;
+        align-items: center;
+      }
+      .device {
         overflow: hidden;
         position: relative;
+        display: inline-flex;
+        width: 45vw;
+        height: 90vw;
+        max-width: 325px;
+        max-height: 625px;
+      }
+      .claim {
+        width: 50%;
         display: flex;
-        width: 25vw;
-        height: 50vw;
-        margin-left: 20vw;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
       }
       .frame {
         position: absolute;
@@ -27,7 +57,7 @@
       }
       .bg {
         flex: 1;
-        margin: 10px;
+        margin: 5%;
         background-color: white;
         border-radius: 10%;
       }
@@ -38,26 +68,55 @@
         bottom: 0;
         height: 100%;
         left: 0;
-        width: 100%;
+        width: 98%;
         padding: 10px;
         box-sizing: border-box;
         z-index: 1;
+      }
+      .github {
+        border-radius: 8px;
+        padding: 16px;
+        text-align: center;
+        text-decoration: none;
+        background-color: #24292E;
+        display: inline-block;
+        color: white;
+      }
+      .github:hover {
+        opacity: 0.8;
+      }
+      @media (max-width: 800px) {
+        .container {
+          flex-direction: column;
+        }
+        .claim {
+          width: 100%;
+        }
       }
     </style>
   </head>
   <body>
     <div class="container">
-      <div class="bg"></div>
-       <img class="frame" src="https://i.imgur.com/tlGEoE2.png" />
-        <video
-          class="video"
-          preload="auto"
-          autoplay="autoplay"
-          muted="muted"
-          loop="loop"
-        >
-          <source src="//i.imgur.com/SOcaUo0.mp4" type="video/mp4">
-        </video>
+      <div class="device">
+        <div class="bg"></div>
+         <img class="frame" src="https://i.imgur.com/tlGEoE2.png" />
+          <video
+            class="video"
+            preload="auto"
+            autoplay="autoplay"
+            muted="muted"
+            loop="loop"
+          >
+            <source src="//i.imgur.com/SOcaUo0.mp4" type="video/mp4">
+          </video>
+      </div>
+      <main class="claim">
+        <h1>REINPUT</h1>
+        <h2>A React Native TextInput with material style 😎</h2>
+        <a class="github" href="https://github.com/sospedra/reinput">
+          View on GitHub
+        </a>
+      </main>
     </div>
   </body>
 </html>
