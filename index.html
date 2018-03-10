@@ -1,0 +1,63 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Reinput</title>
+    <style type="text/css">
+      html, body {
+        height: 100%;
+        margin: 0;
+        background: linear-gradient(to bottom, #ffc99f 0%,#ef64b6 100%);
+      }
+      .container {
+        overflow: hidden;
+        position: relative;
+        display: flex;
+        width: 25vw;
+        height: 50vw;
+        margin-left: 20vw;
+      }
+      .frame {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        left: 0;
+        z-index: 2;
+        height: 100%;
+      }
+      .bg {
+        flex: 1;
+        margin: 10px;
+        background-color: white;
+        border-radius: 10%;
+      }
+      .video {
+        position: absolute;
+        top: 0;
+        right: 0;
+        bottom: 0;
+        height: 100%;
+        left: 0;
+        width: 100%;
+        padding: 10px;
+        box-sizing: border-box;
+        z-index: 1;
+      }
+    </style>
+  </head>
+  <body>
+    <div class="container">
+      <div class="bg"></div>
+       <img class="frame" src="https://i.imgur.com/tlGEoE2.png" />
+        <video
+          class="video"
+          preload="auto"
+          autoplay="autoplay"
+          muted="muted"
+          loop="loop"
+        >
+          <source src="//i.imgur.com/SOcaUo0.mp4" type="video/mp4">
+        </video>
+    </div>
+  </body>
+</html>
