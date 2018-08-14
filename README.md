@@ -21,6 +21,8 @@ Styling react-native inputs can be cumbersome. And most of them heavily relies
 onto the material design patterns. This style layer over the regular `TextInput`
 paves the way towards and easier and faster development.
 
+We also expose a ReinputButton. Check the docs ;)
+
 ### Usage
 
 ```js
@@ -111,6 +113,25 @@ errorFontSize         | Number             | `12`
 errorPaddingTop       | Number             | `8`
 
 And **also** all the [TextInput](https://facebook.github.io/react-native/docs/textinput.html#props) properties will work.
+
+### ReinputButton
+
+We also expose a component that looks like an Input but it's a button so accepts `onPress` prop.
+We do following the [material design guidelines](https://material.io/design/components/text-fields.html).
+
+Props are the same as the Input but it also accepts an `onPress` and doesn't have hooks for focus/blur events.
+
+```js
+import { ReinputButton } from 'reinput'
+
+const Input = () => (
+  <ReinputButton
+    label='This is not an Input'
+    value='If there is no value it shows the label as placeholder'
+    onPress={/* whatever callback */}
+  />
+)
+```
 
 ### Example
 
