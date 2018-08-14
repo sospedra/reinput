@@ -19,7 +19,7 @@ export default class ReinputInput extends React.Component {
     this.state = {
       focused: false,
       height: props.fontSize * styles.SCALE_FACTOR,
-      value: null
+      value: ''
     }
   }
 
@@ -38,8 +38,8 @@ export default class ReinputInput extends React.Component {
   handleChangeText = (...args) => {
     const { onChangeText, value } = this.props
 
-    if (value == null) {
-      this.setState({ value: args[0] })
+    if (!value) {
+      this.setState({ value: '' })
     }
 
     onChangeText(...args)
@@ -62,7 +62,7 @@ export default class ReinputInput extends React.Component {
 
   render () {
     const { focused } = this.state
-    const value = this.props.value != null ? this.props.value : this.state.value
+    const value = !this.props.value ? this.state.value : this.props.value
     const hasValue = this.hasValidValue(value) || this.hasValidValue(this.props.defaultValue)
 
     return (
