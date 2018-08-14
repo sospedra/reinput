@@ -1,6 +1,27 @@
 import React, { Component } from 'react'
 import { Image, StyleSheet, Text, View } from 'react-native'
-import Reinput from 'reinput'
+import Reinput, { ReinputButton } from 'reinput'
+
+class ReinputButtonExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <ReinputButton
+        label='This is not an Input'
+        value={this.state.value}
+        onPress={() => this.setState({
+          value: this.state.value ? '' : 'If you want to survive out here, you have got to know where your towel is'
+        })}
+      />
+    )
+  }
+}
 
 export default class example extends Component {
   render () {
@@ -29,6 +50,7 @@ export default class example extends Component {
           label='I do not like the'
           defaultValue='🥕🥕🥕'
         />
+        <ReinputButtonExample />
       </View>
     )
   }
