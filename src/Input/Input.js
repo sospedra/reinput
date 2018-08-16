@@ -86,6 +86,7 @@ export default class ReinputInput extends React.Component {
               underlineColorAndroid='transparent'
               value={value}
             />
+            <Icon {...pickIconProps({ ...this.props, overlay: true, icon: this.props.iconOverlay })} />
             <Underline {...pickUnderlineProps({...this.props, focused})} />
           </View>
           <Error {...pickErrorProps(this.props)} />
