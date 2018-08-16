@@ -13,7 +13,7 @@ class ReinputButtonExample extends React.Component {
   render () {
     return (
       <ReinputButton
-        label='This is not an Input'
+        label='This is not an Input but a Button'
         value={this.state.value}
         onPress={() => this.setState({
           value: this.state.value ? '' : 'If you want to survive out here, you have got to know where your towel is'
@@ -52,8 +52,12 @@ export default class example extends Component {
           activeColor='#2E7D32'
         />
         <Reinput
-          label='I do not like the'
+          label='With defaultValues'
           defaultValue='🥕🥕🥕'
+        />
+        <Reinput
+          label='And assistive text'
+          placeholder='This is the native placeholder prop'
         />
         <ReinputButtonExample />
       </View>

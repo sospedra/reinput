@@ -14,5 +14,5 @@ export const placeholder = (props = {}) => ({
   color: props.placeholderColor,
   opacity: (props.focused && !props.hasValue) ? 1 : 0,
   position: 'absolute',
-  top: 0
+  top: 2
 })
