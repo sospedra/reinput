@@ -12,7 +12,7 @@ export default class ReinputPlaceholder extends React.Component {
   render () {
     return <Mayre
       of={Text}
-      when={!!this.props.placeholder}
+      when={!!this.props.placeholder && !this.props.hasValue && this.props.focused}
       with={{
         children: this.props.placeholder,
         numberOfLines: 1,
