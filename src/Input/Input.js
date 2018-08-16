@@ -64,7 +64,6 @@ export default class ReinputInput extends React.Component {
     const { focused } = this.state
     const value = this.props.value != null ? this.props.value : this.state.value
     const hasValue = this.hasValidValue(value) || this.hasValidValue(this.props.defaultValue)
-    console.log({ overlay: true, shouldRender: !!this.props.iconOverlay })
 
     return (
       <View style={styles.row}>
