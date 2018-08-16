@@ -38,6 +38,11 @@ export default class example extends Component {
           icon={<Image source={require('./icon.png')} />}
         />
         <Reinput
+          label='Add overlay icons'
+          secureTextEntry
+          iconOverlay={<Image source={require('./icon.png')} />}
+        />
+        <Reinput
           label='Redish'
           error='Something broken here 🙀'
         />

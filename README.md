@@ -84,7 +84,8 @@ labelDuration         | Number             | `200`
 
 Name                  | Type               | Default
 :-------------------- |:------------------ |:----------
-icon                  | Element
+icon                  | Element            |
+iconOverlay           | Element            |
 
 #### Placeholder
 
