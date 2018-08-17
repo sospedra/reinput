@@ -1,6 +1,6 @@
 {
   "name": "reinput",
-  "version": "2.4.0",
+  "version": "2.4.1",
   "description": "A React Native TextInput with material style 😎",
   "main": "./src/index.js",
   "repository": {
