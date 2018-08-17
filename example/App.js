@@ -23,6 +23,25 @@ class ReinputButtonExample extends React.Component {
   }
 }
 
+class RelayValue extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <Reinput
+        value={this.state.value}
+        label='Control value from outside the Reinput component'
+        onChangeText={(value) => this.setState({ value })}
+      />
+    )
+  }
+}
+
 export default class example extends Component {
   render () {
     return (
@@ -59,6 +78,7 @@ export default class example extends Component {
           label='And assistive text'
           placeholder='This is the native placeholder prop'
         />
+        <RelayValue />
         <ReinputButtonExample />
       </View>
     )
