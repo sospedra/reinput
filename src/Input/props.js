@@ -23,7 +23,7 @@ export const defaultProps = {
   paddingRight: 0,
   paddingTop: BASE_UNIT * 3,
   register: function () {},
-  value: null
+  value: undefined
 }
 
 export const propTypes = {

@@ -24,25 +24,20 @@ export default class ReinputInput extends React.Component {
   }
 
   handleFocus = (...args) => {
-    const { onFocus } = this.props
     this.setState({ focused: true })
-    onFocus(...args)
+    this.props.onFocus(...args)
   }
 
   handleBlur = (...args) => {
-    const { onBlur } = this.props
     this.setState({ focused: false })
-    onBlur(...args)
+    this.props.onBlur(...args)
   }
 
-  handleChangeText = (...args) => {
-    const { onChangeText, value } = this.props
-
-    if (!value) {
-      this.setState({ value: args[0] })
+  handleChangeText = (value, ...args) => {
+    if (!this.hasPropValue()) {
+      this.setState({ value })
     }
-
-    onChangeText(...args)
+    this.props.onChangeText(value, ...args)
   }
 
   handleContentSizeChange = (event) => {
@@ -56,14 +51,16 @@ export default class ReinputInput extends React.Component {
     onContentSizeChange(event)
   }
 
-  hasValidValue (value) {
-    return !!(value && value.length > 0)
+  hasPropValue = () => this.props.value !== undefined
+
+  hasValueWithContent = (value) => {
+    return typeof value === 'string' && value.length > 0
   }
 
   render () {
     const { focused } = this.state
-    const value = !this.props.value ? this.state.value : this.props.value
-    const hasValue = this.hasValidValue(value) || this.hasValidValue(this.props.defaultValue)
+    const value = this.hasPropValue() ? this.props.value : this.state.value
+    const hasValue = this.hasValueWithContent(value)
 
     return (
       <View style={styles.row}>
