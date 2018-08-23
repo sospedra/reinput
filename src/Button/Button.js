@@ -16,6 +16,7 @@ export default class ReinputButton extends React.Component {
   onPress () {
     return (...args) => {
       this.element && this.element.focus && this.element.focus()
+      this.element && this.element.blur && this.element.blur()
       this.props.onPress(...args)
     }
   }
