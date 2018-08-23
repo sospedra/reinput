@@ -55,7 +55,7 @@ export default class ReinputButton extends React.Component {
                 <Text
                   numberOfLines={1}
                   pointerEvents='none'
-                  style={stylesInput.input(this.props, height)}
+                  style={[stylesInput.input(this.props, height), styles.input(this.props)]}
                 >
                   {hasValue && this.props.value}
                 </Text>
