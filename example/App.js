@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, ScrollView, StyleSheet, Text } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Reinput, { ReinputButton } from 'reinput'
 
 class ReinputButtonExample extends React.Component {
@@ -38,6 +38,27 @@ class ReinputButtonWithIconExample extends React.Component {
         label='Button with an overlay icon'
         onPress={() => this.setState({
           value: this.state.value ? '' : 'Icons are life'
+        })}
+        value={this.state.value}
+      />
+    )
+  }
+}
+
+class ReinputButtonShortExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <ReinputButton
+        label='Button label'
+        onPress={() => this.setState({
+          value: this.state.value ? '' : 'I am a button'
         })}
         value={this.state.value}
       />
@@ -105,6 +126,16 @@ export default class example extends Component {
         <RelayValue />
         <ReinputButtonExample />
         <ReinputButtonWithIconExample />
+        <View style={styles.simpleLayout}>
+          <View style={styles.firstColumn}>
+            <ReinputButtonShortExample />
+          </View>
+          <View style={styles.secondColumn}>
+            <Reinput
+              label='Input Label'
+            />
+          </View>
+        </View>
       </ScrollView>
     )
   }
@@ -129,5 +160,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5
+  },
+  simpleLayout: {
+    flexDirection: 'row',
+    marginBottom: 10
+  },
+  firstColumn: {
+    flex: 2,
+    marginRight: 8
+  },
+  secondColumn: {
+    flex: 3
   }
 })
