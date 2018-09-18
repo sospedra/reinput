@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, Text, ScrollView } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text } from 'react-native'
 import Reinput, { ReinputButton } from 'reinput'
 
 class ReinputButtonExample extends React.Component {
