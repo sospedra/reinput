@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, StyleSheet, Text, ScrollView } from 'react-native'
 import Reinput, { ReinputButton } from 'reinput'
 
 class ReinputButtonExample extends React.Component {
@@ -18,6 +18,28 @@ class ReinputButtonExample extends React.Component {
         onPress={() => this.setState({
           value: this.state.value ? '' : 'If you want to survive out here, you have got to know where your towel is'
         })}
+      />
+    )
+  }
+}
+
+class ReinputButtonWithIconExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <ReinputButton
+        iconOverlay={<Image source={require('./icon.png')} />}
+        label='Button with an overlay icon'
+        onPress={() => this.setState({
+          value: this.state.value ? '' : 'Icons are life'
+        })}
+        value={this.state.value}
       />
     )
   }
@@ -45,7 +67,9 @@ class RelayValue extends React.Component {
 export default class example extends Component {
   render () {
     return (
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        style={styles.container}>
         <Text style={styles.welcome}>
           Awesome inputs with Reinput
         </Text>
@@ -80,7 +104,8 @@ export default class example extends Component {
         />
         <RelayValue />
         <ReinputButtonExample />
-      </View>
+        <ReinputButtonWithIconExample />
+      </ScrollView>
     )
   }
 }
@@ -88,10 +113,12 @@ export default class example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
     padding: 16
+  },
+  scrollContainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   welcome: {
     fontSize: 20,
