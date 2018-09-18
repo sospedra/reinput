@@ -1,5 +1,5 @@
 import React from 'react'
-import { Text, TouchableOpacity, TextInput, View } from 'react-native'
+import { Text, TouchableOpacity, View } from 'react-native'
 
 import Error, { pickErrorProps } from '../Error'
 import Icon, { pickIconProps } from '../Icon'
@@ -15,15 +15,7 @@ export default class ReinputButton extends React.Component {
 
   onPress () {
     return (...args) => {
-      this.element && this.element.focus && this.element.focus()
-      this.element && this.element.blur && this.element.blur()
       this.props.onPress(...args)
-    }
-  }
-
-  hijackElement () {
-    return (element) => {
-      this.element = element
     }
   }
 
@@ -43,7 +35,6 @@ export default class ReinputButton extends React.Component {
             accessible={this.props.accessible}
             accessiblityLabel={this.props.accessiblityLabel || this.props.label}
           >
-            <TextInput style={styles.hidden()} ref={this.hijackElement()} />
             <TouchableOpacity
               {...pickTouchableOpacityProps(this.props)}
               onPress={this.onPress()}
@@ -61,6 +52,7 @@ export default class ReinputButton extends React.Component {
                 </Text>
               </View>
             </TouchableOpacity>
+            <Icon {...pickIconProps({ ...this.props, overlay: true, icon: this.props.iconOverlay })} />
             <Underline {...pickUnderlineProps({...this.props})} />
           </View>
           <Error {...pickErrorProps(this.props)} />

@@ -1,5 +1,5 @@
 import React, { Component } from 'react'
-import { Image, StyleSheet, Text, View } from 'react-native'
+import { Image, ScrollView, StyleSheet, Text, View } from 'react-native'
 import Reinput, { ReinputButton } from 'reinput'
 
 class ReinputButtonExample extends React.Component {
@@ -18,6 +18,49 @@ class ReinputButtonExample extends React.Component {
         onPress={() => this.setState({
           value: this.state.value ? '' : 'If you want to survive out here, you have got to know where your towel is'
         })}
+      />
+    )
+  }
+}
+
+class ReinputButtonWithIconExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <ReinputButton
+        iconOverlay={<Image source={require('./icon.png')} />}
+        label='Button with an overlay icon'
+        onPress={() => this.setState({
+          value: this.state.value ? '' : 'Icons are life'
+        })}
+        value={this.state.value}
+      />
+    )
+  }
+}
+
+class ReinputButtonShortExample extends React.Component {
+  constructor (props) {
+    super(props)
+    this.state = {
+      value: ''
+    }
+  }
+
+  render () {
+    return (
+      <ReinputButton
+        label='Button label'
+        onPress={() => this.setState({
+          value: this.state.value ? '' : 'I am a button'
+        })}
+        value={this.state.value}
       />
     )
   }
@@ -45,7 +88,9 @@ class RelayValue extends React.Component {
 export default class example extends Component {
   render () {
     return (
-      <View style={styles.container}>
+      <ScrollView
+        contentContainerStyle={styles.scrollContainer}
+        style={styles.container}>
         <Text style={styles.welcome}>
           Awesome inputs with Reinput
         </Text>
@@ -80,7 +125,18 @@ export default class example extends Component {
         />
         <RelayValue />
         <ReinputButtonExample />
-      </View>
+        <ReinputButtonWithIconExample />
+        <View style={styles.simpleLayout}>
+          <View style={styles.firstColumn}>
+            <ReinputButtonShortExample />
+          </View>
+          <View style={styles.secondColumn}>
+            <Reinput
+              label='Input Label'
+            />
+          </View>
+        </View>
+      </ScrollView>
     )
   }
 }
@@ -88,10 +144,12 @@ export default class example extends Component {
 const styles = StyleSheet.create({
   container: {
     flex: 1,
-    justifyContent: 'center',
-    alignItems: 'center',
     backgroundColor: '#F5FCFF',
     padding: 16
+  },
+  scrollContainer: {
+    alignItems: 'center',
+    justifyContent: 'center'
   },
   welcome: {
     fontSize: 20,
@@ -102,5 +160,16 @@ const styles = StyleSheet.create({
     textAlign: 'center',
     color: '#333333',
     marginBottom: 5
+  },
+  simpleLayout: {
+    flexDirection: 'row',
+    marginBottom: 10
+  },
+  firstColumn: {
+    flex: 2,
+    marginRight: 8
+  },
+  secondColumn: {
+    flex: 3
   }
 })
