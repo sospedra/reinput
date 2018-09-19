@@ -15,6 +15,7 @@ export default class ReinputIcon extends React.Component {
         when={!!this.props.icon}
         with={{
           children: this.props.icon,
+          onPress: this.props.onPress,
           style: [styles.icon, this.props.overlay && styles.overlay(this.props.paddingBottom)]
         }}
       />
