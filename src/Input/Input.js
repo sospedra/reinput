@@ -57,6 +57,13 @@ export default class ReinputInput extends React.Component {
     return typeof value === 'string' && value.length > 0
   }
 
+  register = (ref) => {
+    this.ref = ref
+    this.props.register && this.props.register(ref)
+  }
+
+  focus = () => this.ref && this.ref.focus()
+
   render () {
     const { focused } = this.state
     const value = this.hasPropValue() ? this.props.value : this.state.value
@@ -64,7 +71,7 @@ export default class ReinputInput extends React.Component {
 
     return (
       <View style={styles.row}>
-        <Icon {...pickIconProps(this.props)} />
+        <Icon {...pickIconProps({ ...this.props, onPress: this.focus })} />
         <View style={styles.container(this.props)}>
           <View
             accessible={this.props.accessible}
@@ -79,12 +86,17 @@ export default class ReinputInput extends React.Component {
               onContentSizeChange={this.handleContentSizeChange}
               onFocus={this.handleFocus}
               placeholder={undefined}
-              ref={this.props.register}
+              ref={this.register}
               style={styles.input(this.props, this.state.height)}
               underlineColorAndroid='transparent'
               value={value}
             />
-            <Icon {...pickIconProps({ ...this.props, overlay: true, icon: this.props.iconOverlay })} />
+            <Icon {...pickIconProps({
+              ...this.props,
+              icon: this.props.iconOverlay,
+              onPress: this.focus,
+              overlay: true
+            })} />
             <Underline {...pickUnderlineProps({...this.props, focused})} />
           </View>
           <Error {...pickErrorProps(this.props)} />

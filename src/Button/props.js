@@ -32,6 +32,8 @@ export const propTypes = {
   fontSize: PropTypes.number,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
+  icon: PropTypes.node,
+  iconOverlay: PropTypes.node,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
