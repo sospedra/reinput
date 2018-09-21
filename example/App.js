@@ -99,6 +99,7 @@ export default class example extends Component {
         />
         <Reinput
           label='Easy align icons'
+          error='Even if an icon is present, the assertive text should appear right below the input'
           icon={<Image source={require('./icon.png')} />}
         />
         <Reinput
@@ -108,7 +109,7 @@ export default class example extends Component {
         />
         <Reinput
           label='Redish'
-          error='Something broken here 🙀'
+          error='Something broken here 🙀. Apparently, if this error has two or more lines, it might cause issues during rendering. It is just a matter of fixing the ReinputError component I guess...'
         />
         <Reinput
           label='Adjust any style'
