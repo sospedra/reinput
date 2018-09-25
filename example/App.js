@@ -108,7 +108,7 @@ export default class example extends Component {
         />
         <Reinput
           label='Redish'
-          error='Something broken here 🙀'
+          error='Something broken here 🙀. But do not worry. Reinput is here to save the day.'
         />
         <Reinput
           label='Adjust any style'

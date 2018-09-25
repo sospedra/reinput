@@ -16,6 +16,7 @@ export default class ReinputError extends React.Component {
         of={Text}
         with={{
           children: this.props.error,
+          numberOfLines: 2,
           style: styles.error(this.props)
         }}
         or={View}
