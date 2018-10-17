@@ -75,7 +75,7 @@ export default class ReinputInput extends React.Component {
         <View style={styles.container(this.props)}>
           <View
             accessible={this.props.accessible}
-            accessiblityLabel={this.props.accessiblityLabel || this.props.label}
+            accessibilityLabel={this.props.accessibilityLabel || this.props.label}
           >
             <Label {...pickLabelProps({...this.props, hasValue, focused})} />
             <Placeholder {...pickPlaceholderProps({...this.props, hasValue, focused})} />
