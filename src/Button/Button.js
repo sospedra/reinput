@@ -33,7 +33,7 @@ export default class ReinputButton extends React.Component {
         <View style={stylesInput.container(this.props)}>
           <View
             accessible={this.props.accessible}
-            accessiblityLabel={this.props.accessiblityLabel || this.props.label}
+            accessibilityLabel={this.props.accessibilityLabel || this.props.label}
           >
             <TouchableOpacity
               {...pickTouchableOpacityProps(this.props)}
