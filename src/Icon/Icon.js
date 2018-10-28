@@ -1,5 +1,4 @@
 import React from 'react'
-import Mayre from 'mayre'
 import { TouchableOpacity } from 'react-native'
 
 import { propTypes } from './props'
@@ -9,18 +8,20 @@ export default class ReinputIcon extends React.Component {
   static propTypes = propTypes
 
   render () {
+    const {icon, onPress, overlay, paddingBottom, children} = this.props
+    if (!icon) {
+      return null
+    }
+
     return (
-      <Mayre
-        of={TouchableOpacity}
-        when={!!this.props.icon}
-        with={{
-          accessible: false,
-          activeOpacity: 1,
-          children: this.props.icon,
-          onPress: this.props.onPress,
-          style: [styles.icon, this.props.overlay && styles.overlay(this.props.paddingBottom)]
-        }}
-      />
+      <TouchableOpacity
+        accessible={false}
+        activeOpacity={1}
+        onPress={onPress}
+        style={[styles.icon, overlay && styles.overlay(paddingBottom)]}
+      >
+        {children}
+      </TouchableOpacity>
     )
   }
 }
