@@ -39,9 +39,6 @@
     "eslint-plugin-standard": "^3.0.1",
     "husky": "^0.14.3"
   },
-  "dependencies": {
-    "mayre": "^3.2.3"
-  },
   "scripts": {
     "precommit": "npm test",
     "test:lint": "eslint src",

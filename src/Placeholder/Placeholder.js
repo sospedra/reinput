@@ -1,5 +1,4 @@
 import React from 'react'
-import Mayre from 'mayre'
 import { Text } from 'react-native'
 
 import { defaultProps, propTypes } from './props'
@@ -10,15 +9,10 @@ export default class ReinputPlaceholder extends React.Component {
   static defaultProps = defaultProps
 
   render () {
-    return <Mayre
-      of={Text}
-      when={!!this.props.placeholder && !this.props.hasValue && this.props.focused}
-      with={{
-        children: this.props.placeholder,
-        numberOfLines: 1,
-        pointerEvents: 'none',
-        style: styles.placeholder(this.props)
-      }}
-    />
+    return this.props.placeholder && !this.props.hasValue && this.props.focused ? (
+      <Text numberOfLines={1} pointerEvents="none" style={styles.placeholder(this.props)}>
+        {this.props.placeholder}
+      </Text>
+    ) : null
   }
 }
