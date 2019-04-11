@@ -7,5 +7,5 @@ export const error = (props = {}) => ({
 })
 
 export const placeholder = () => ({
-  height: BASE_UNIT * 4
+  height: 0
 })

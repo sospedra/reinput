@@ -9,7 +9,7 @@ export default class ReinputError extends React.Component {
   static defaultProps = defaultProps
 
   render () {
-    return this.props.error ? (
+    return this.props.error && this.props.showError ? (
       <Text numberOfLines={2} style={styles.error(this.props)}>
         {this.props.error}
       </Text>

@@ -7,7 +7,8 @@ export const propTypes = {
   error: PropTypes.string,
   errorPaddingTop: PropTypes.number,
   errorColor: PropTypes.string,
-  errorFontSize: PropTypes.number
+  errorFontSize: PropTypes.number,
+  showError: propTypes.bool
 }
 
 export const defaultProps = {
