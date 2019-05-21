@@ -1,5 +1,7 @@
+
 import React from 'react'
 import { View, TextInput } from 'react-native'
+import PropTypes from 'prop-types'
 
 import Error, { pickErrorProps } from '../Error'
 import Icon, { pickIconProps } from '../Icon'
@@ -10,7 +12,9 @@ import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
 export default class ReinputInput extends React.Component {
-  static propTypes = propTypes
+  /** @type {PropTypes.InferProps<typeof propTypes>} */
+  static propTypes = { ...propTypes, ...TextInput.propTypes }
+  /** @type {import('prop-types').InferProps<typeof propTypes>} */
   static defaultProps = defaultProps
 
   constructor (props) {
@@ -19,7 +23,7 @@ export default class ReinputInput extends React.Component {
     this.state = {
       focused: false,
       height: props.fontSize * styles.SCALE_FACTOR,
-      value: props.defaultValue
+      value: props.value != null ? props.value : props.defaultValue
     }
   }
 
@@ -33,13 +37,13 @@ export default class ReinputInput extends React.Component {
     this.props.onBlur(...args)
   }
 
-  handleChangeText = (value, ...args) => {
-    if (!this.hasPropValue()) {
+  getValue = () => { return this.isValueLocked() ? this.props.value : this.state.value; }
+  setValue = (value, ...args) => {
+    if ( ! this.isValueLocked()) {
       this.setState({ value })
     }
     this.props.onChangeText(value, ...args)
   }
-
   handleContentSizeChange = (event) => {
     const { onContentSizeChange, fontSize } = this.props
     const { height } = event.nativeEvent.contentSize
@@ -51,7 +55,7 @@ export default class ReinputInput extends React.Component {
     onContentSizeChange(event)
   }
 
-  hasPropValue = () => this.props.value !== undefined
+  isValueLocked = () => this.props.value !== undefined
 
   hasValueWithContent = (value) => {
     return typeof value === 'string' && value.length > 0
@@ -66,7 +70,7 @@ export default class ReinputInput extends React.Component {
 
   render () {
     const { focused } = this.state
-    const value = this.hasPropValue() ? this.props.value : this.state.value
+    const value = this.getValue()
     const hasValue = this.hasValueWithContent(value)
 
     return (
@@ -82,12 +86,12 @@ export default class ReinputInput extends React.Component {
             <TextInput
               {...pickTextInputProps(this.props)}
               onBlur={this.handleBlur}
-              onChangeText={this.handleChangeText}
+              onChangeText={this.setValue}
               onContentSizeChange={this.handleContentSizeChange}
               onFocus={this.handleFocus}
               placeholder={undefined}
               ref={this.register}
-              style={styles.input(this.props, this.state.height)}
+              style={styles.input(this.props, this.state.height, hasValue)}
               underlineColorAndroid='transparent'
               value={value}
             />

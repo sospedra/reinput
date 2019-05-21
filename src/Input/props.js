@@ -1,34 +1,25 @@
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { TextInput } from 'react-native'
 
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
 import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
 
+import * as LabelProps from '../Label/props'
+import * as PlaceholderProps from '../Placeholder/props'
+import * as IconProps from '../Icon/props'
+import * as UnderlineProps from '../Underline/props'
+
+
 const noop = () => {}
 
-export const defaultProps = {
-  ...ErrorProps.defaultProps,
-  accessible: true,
-  color: BLACK,
-  fontSize: FONT,
-  fontWeight: 'normal',
-  marginBottom: BASE_UNIT,
-  onBlur: noop,
-  onChangeText: noop,
-  onContentSizeChange: noop,
-  onFocus: noop,
-  paddingBottom: BASE_UNIT,
-  paddingLeft: 0,
-  paddingRight: 0,
-  paddingTop: BASE_UNIT * 3,
-  register: function () {},
-  value: undefined
-}
-
 export const propTypes = {
-  ...TextInput.propTypes,
+  //...TextInput.propTypes, // Breaks IDE auto-completion
   ...ErrorProps.propTypes,
+  ...LabelProps.propTypes,
+  ...PlaceholderProps.propTypes,
+  ...IconProps.propTypes,
+  ...UnderlineProps.propTypes,
   activeColor: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
@@ -52,6 +43,26 @@ export const propTypes = {
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
   register: PropTypes.func.isRequired
+}
+
+/** @type {InferProps<typeof propTypes>} */
+export const defaultProps = {
+  ...ErrorProps.defaultProps,
+  accessible: true,
+  color: BLACK,
+  fontSize: FONT,
+  fontWeight: 'normal',
+  marginBottom: BASE_UNIT,
+  onBlur: noop,
+  onChangeText: noop,
+  onContentSizeChange: noop,
+  onFocus: noop,
+  paddingBottom: BASE_UNIT,
+  paddingLeft: 0,
+  paddingRight: 0,
+  paddingTop: BASE_UNIT * 3,
+  register: function () {},
+  value: undefined
 }
 
 export const pickTextInputProps = (props) => {
