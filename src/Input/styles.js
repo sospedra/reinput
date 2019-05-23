@@ -21,7 +21,7 @@ export const container = (props) => ({
   flex: 1
 })
 
-export const input = (props = {}, stateHeight) => {
+export const input = (props = {}, stateHeight, hasValue) => {
   const autogrowHeight = (props.multiline && props.height) ? props.height : stateHeight
   const multilineHeight = props.multiline ? autogrowHeight : props.fontSize * SCALE_FACTOR
   const height = props.paddingTop + props.paddingBottom + multilineHeight
@@ -40,6 +40,7 @@ export const input = (props = {}, stateHeight) => {
 
   return {
     ...styles,
+    color: hasValue ? styles.color : 'transparent',
     ...Platform.select({
       ios: { height },
       android: {

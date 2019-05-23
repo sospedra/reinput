@@ -12,7 +12,7 @@ export const placeholder = (props = {}) => ({
   ]),
   backgroundColor: 'transparent',
   color: props.placeholderColor,
-  opacity: (props.focused && !props.hasValue) ? 1 : 0,
+  opacity: props.placeholderOpacity,
   position: 'absolute',
   top: 2
 })
