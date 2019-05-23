@@ -1,7 +1,5 @@
-
 import React from 'react'
 import { View, TextInput } from 'react-native'
-import PropTypes from 'prop-types'
 
 import Error, { pickErrorProps } from '../Error'
 import Icon, { pickIconProps } from '../Icon'
@@ -12,9 +10,7 @@ import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
 export default class ReinputInput extends React.Component {
-  /** @type {PropTypes.InferProps<typeof propTypes>} */
   static propTypes = { ...propTypes, ...TextInput.propTypes }
-  /** @type {import('prop-types').InferProps<typeof propTypes>} */
   static defaultProps = defaultProps
 
   constructor (props) {
@@ -37,9 +33,9 @@ export default class ReinputInput extends React.Component {
     this.props.onBlur(...args)
   }
 
-  getValue = () => { return this.isValueLocked() ? this.props.value : this.state.value; }
+  getValue = () => { return this.isValueLocked() ? this.props.value : this.state.value }
   setValue = (value, ...args) => {
-    if ( ! this.isValueLocked()) {
+    if (!this.isValueLocked()) {
       this.setState({ value })
     }
     this.props.onChangeText(value, ...args)

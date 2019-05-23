@@ -4,10 +4,10 @@ import { GRAY } from '../services/constants'
 import pick from '../services/pick'
 
 export const PlaceholderVisibility = {
-    Always: undefined,
-    Never: null,
-    OnFocus: true,
-    OnBlur: false,
+  Always: undefined,
+  Never: null,
+  OnFocus: true,
+  OnBlur: false
 }
 
 export const propTypes = {
@@ -23,7 +23,7 @@ export const propTypes = {
   placeholder: PropTypes.string,
   placeholderColor: PropTypes.string,
   placeholderOpacity: PropTypes.number,
-  placeholderVisibility: PropTypes.oneOf(PlaceholderVisibility),
+  placeholderVisibility: PropTypes.oneOf(PlaceholderVisibility)
 }
 
 export const defaultProps = {
