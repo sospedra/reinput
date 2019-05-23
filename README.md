@@ -89,10 +89,22 @@ iconOverlay           | Element            |
 
 #### Placeholder
 
-Name                  | Type               | Default
-:-------------------- |:------------------ |:----------
-placeholder           | String             |
-placeholderColor      | String             | `#757575`
+Name                  | Type                    | Default
+:-------------------- |:----------------------- |:----------
+placeholder           | String                  |
+placeholderColor      | String                  | `#757575`
+placeholderVisibility | boolean|undefined|null  |
+
+How `placeholderVisibility` works?
+
+```
+{
+    Always: undefined,
+    Never: null,
+    OnFocus: true,
+    OnBlur: false,
+}
+```
 
 #### Underline
 

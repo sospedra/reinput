@@ -1,4 +1,4 @@
-import PropTypes, { InferProps } from 'prop-types'
+import PropTypes from 'prop-types'
 import { TextInput } from 'react-native'
 
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
@@ -10,11 +10,10 @@ import * as PlaceholderProps from '../Placeholder/props'
 import * as IconProps from '../Icon/props'
 import * as UnderlineProps from '../Underline/props'
 
-
 const noop = () => {}
 
 export const propTypes = {
-  //...TextInput.propTypes, // Breaks IDE auto-completion
+  // ...TextInput.propTypes, // Breaks IDE auto-completion
   ...ErrorProps.propTypes,
   ...LabelProps.propTypes,
   ...PlaceholderProps.propTypes,

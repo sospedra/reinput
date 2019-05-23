@@ -19,7 +19,7 @@ export default class ReinputLabel extends React.Component {
     }
   }
 
-  componentWillReceiveProps (props) {
+  UNSAFE_componentWillReceiveProps (props) { /* eslint-disable-line camelcase */
     const { animatedScale, animatedTranslate } = this.state
     const { labelDuration, labelActiveScale, labelActiveTop, hasValue, focused } = props
     const hasValueChanged = this.props.hasValue !== hasValue
