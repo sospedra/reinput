@@ -1,4 +1,4 @@
-import PropTypes, { InferProps } from 'prop-types'
+import PropTypes from 'prop-types'
 import { TextInput } from 'react-native'
 
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
