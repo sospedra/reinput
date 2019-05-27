@@ -23,7 +23,7 @@ export const propTypes = {
   placeholder: PropTypes.string,
   placeholderColor: PropTypes.string,
   placeholderOpacity: PropTypes.number,
-  placeholderVisibility: PropTypes.oneOf(PlaceholderVisibility)
+  placeholderVisibility: PropTypes.bool
 }
 
 export const defaultProps = {

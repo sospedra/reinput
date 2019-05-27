@@ -1,3 +1,4 @@
+
 import React from 'react'
 import { View, TextInput } from 'react-native'
 
@@ -9,7 +10,12 @@ import Underline, { pickUnderlineProps } from '../Underline'
 import { defaultProps, propTypes, pickTextInputProps } from './props'
 import * as styles from './styles'
 
+/**
+ * @typedef {import('prop-types').InferProps<typeof propTypes>} ReinputProps
+ * @augments {React.Component<ReinputProps, {}>}
+ */
 export default class ReinputInput extends React.Component {
+  /** @type {ReinputProps} */
   static propTypes = { ...propTypes, ...TextInput.propTypes }
   static defaultProps = defaultProps
 
@@ -70,7 +76,7 @@ export default class ReinputInput extends React.Component {
     const hasValue = this.hasValueWithContent(value)
 
     return (
-      <View style={styles.row}>
+      <View style={[styles.row, this.props.style]}>
         <Icon {...pickIconProps({ ...this.props, onPress: this.focus })} />
         <View style={styles.container(this.props)}>
           <View
