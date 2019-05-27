@@ -1,4 +1,4 @@
-import PropTypes from 'prop-types'
+import PropTypes, { InferProps } from 'prop-types'
 import { TextInput } from 'react-native'
 
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
@@ -19,7 +19,9 @@ export const propTypes = {
   ...PlaceholderProps.propTypes,
   ...IconProps.propTypes,
   ...UnderlineProps.propTypes,
+  style: PropTypes.node,
   activeColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   fontSize: PropTypes.number,
@@ -48,6 +50,7 @@ export const propTypes = {
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,
+  style: {},
   color: BLACK,
   fontSize: FONT,
   fontWeight: 'normal',

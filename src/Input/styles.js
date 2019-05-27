@@ -16,7 +16,8 @@ export const container = (props) => ({
     'marginBottom',
     'marginLeft',
     'marginRight',
-    'marginTop'
+    'marginTop',
+    'backgroundColor'
   ]),
   flex: 1
 })
