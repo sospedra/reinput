@@ -1,4 +1,5 @@
 import pick from '../services/pick'
+import { BLUE } from '../services/constants'
 
 export const container = ({ top, translateY, scale }) => ({
   marginLeft: '-100%',
@@ -12,9 +13,12 @@ export const container = ({ top, translateY, scale }) => ({
 })
 
 export const label = (props = {}) => {
-  const activeColor = props.activeColor || props.labelActiveColor
-  const focusedColor = props.focused ? activeColor : props.labelColor
-  const color = props.error ? props.errorColor : focusedColor
+  var color = props.labelColor
+  if (props.error) {
+    color = props.errorColor
+  } else if (props.focused) {
+    color = props.labelActiveColor || props.activeColor || BLUE
+  }
 
   return {
     ...pick(props, [

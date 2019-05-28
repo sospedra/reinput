@@ -14,31 +14,32 @@ export default class ReinputLabel extends React.Component {
     const isFocused = props.hasValue || props.focused
 
     this.state = {
+      // Ensures animation is not required for the first render
       animatedScale: new Animated.Value(isFocused ? props.labelActiveScale : 1),
       animatedTranslate: new Animated.Value(isFocused ? props.labelActiveTop : 0)
     }
   }
 
-  UNSAFE_componentWillReceiveProps (props) { /* eslint-disable-line camelcase */
+  componentDidUpdate(prevProps) {
+    const wasActive = prevProps.hasValue || prevProps.focused
+    const isActive = this.props.hasValue || this.props.focused
+    if (wasActive === isActive)
+      return;
+
     const { animatedScale, animatedTranslate } = this.state
-    const { labelDuration, labelActiveScale, labelActiveTop, hasValue, focused } = props
-    const hasValueChanged = this.props.hasValue !== hasValue
-    const focusedChanged = this.props.focused !== focused
-    const isFocused = hasValue || focused
+    const { labelDuration, labelActiveScale, labelActiveTop } = this.props
 
-    if (hasValueChanged || focusedChanged) {
-      Animated.timing(animatedScale, {
-        duration: labelDuration,
-        toValue: isFocused ? labelActiveScale : 1,
-        useNativeDriver: true
-      }).start()
+    Animated.timing(animatedScale, {
+      duration: labelDuration,
+      toValue: isActive ? labelActiveScale : 1,
+      useNativeDriver: true
+    }).start()
 
-      Animated.timing(animatedTranslate, {
-        duration: labelDuration,
-        toValue: isFocused ? labelActiveTop : 0,
-        useNativeDriver: true
-      }).start()
-    }
+    Animated.timing(animatedTranslate, {
+      duration: labelDuration,
+      toValue: isActive ? labelActiveTop : 0,
+      useNativeDriver: true
+    }).start()
   }
 
   render () {

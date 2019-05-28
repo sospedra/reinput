@@ -6,7 +6,6 @@ import * as styles from './styles'
 
 export default class ReinputPlaceholder extends React.Component {
   static propTypes = propTypes
-  /** @type {import('prop-types').InferProps<typeof propTypes>} */
   static defaultProps = defaultProps
 
   render () {

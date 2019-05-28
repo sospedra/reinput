@@ -1,6 +1,6 @@
 import PropTypes from 'prop-types'
 
-import { BLUE, DURATION, GRAY } from '../services/constants'
+import { DURATION, GRAY } from '../services/constants'
 import pick from '../services/pick'
 
 export const propTypes = {
@@ -15,8 +15,8 @@ export const propTypes = {
   underlineHeight: PropTypes.number
 }
 
+/** @type {PropTypes.InferProps<typeof propTypes>} */
 export const defaultProps = {
-  underlineActiveColor: BLUE,
   underlineActiveHeight: 2,
   underlineColor: GRAY,
   underlineDuration: DURATION,
