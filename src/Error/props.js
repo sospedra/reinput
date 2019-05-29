@@ -10,6 +10,7 @@ export const propTypes = {
   errorFontSize: PropTypes.number
 }
 
+/** @type {PropTypes.InferProps<typeof propTypes>} */
 export const defaultProps = {
   errorPaddingTop: BASE_UNIT,
   errorColor: RED,

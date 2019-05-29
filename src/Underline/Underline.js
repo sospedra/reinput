@@ -19,10 +19,10 @@ export default class ReinputUnderline extends React.Component {
     animatedScaleX: new Animated.Value(this.props.error ? SCALE_ACTIVE : SCALE_DEFAULT)
   }
 
-  UNSAFE_componentWillReceiveProps (props) { /* eslint-disable-line camelcase */
-    const { error, focused } = props
+  componentDidUpdate (prevProps) {
+    const { error, focused } = this.props
 
-    if (this.props.focused !== focused || this.props.error !== error) {
+    if (prevProps.focused !== focused || prevProps.error !== error) {
       ;(focused || error) ? this.animateActive() : this.animateDefault()
     }
   }

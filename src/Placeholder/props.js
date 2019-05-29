@@ -26,10 +26,11 @@ export const propTypes = {
   placeholderVisibility: PropTypes.bool
 }
 
+/** @type {PropTypes.InferProps<typeof propTypes>} */
 export const defaultProps = {
   placeholderColor: GRAY,
   placeholderOpacity: 1,
-  placeholderVisibility: PlaceholderVisibility.Always
+  placeholderVisibility: PlaceholderVisibility.OnFocus
 }
 
 export const pickPlaceholderProps = (props) => {

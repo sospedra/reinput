@@ -7,22 +7,6 @@ import * as ErrorProps from '../Error/props'
 
 const noop = () => {}
 
-export const defaultProps = {
-  ...ErrorProps.defaultProps,
-  accessible: true,
-  color: BLACK,
-  fontSize: FONT,
-  fontWeight: 'normal',
-  marginBottom: BASE_UNIT,
-  onPress: noop,
-  paddingBottom: BASE_UNIT,
-  paddingLeft: 0,
-  paddingRight: 0,
-  paddingTop: BASE_UNIT * 3,
-  register: function () {},
-  value: null
-}
-
 export const propTypes = {
   ...TouchableOpacity.propTypes,
   ...ErrorProps.propTypes,
@@ -46,6 +30,23 @@ export const propTypes = {
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
   register: PropTypes.func.isRequired
+}
+
+/** @type {PropTypes.InferProps<typeof propTypes>} */
+export const defaultProps = {
+  ...ErrorProps.defaultProps,
+  accessible: true,
+  color: BLACK,
+  fontSize: FONT,
+  fontWeight: 'normal',
+  marginBottom: BASE_UNIT,
+  onPress: noop,
+  paddingBottom: BASE_UNIT,
+  paddingLeft: 0,
+  paddingRight: 0,
+  paddingTop: BASE_UNIT * 3,
+  register: function () {},
+  value: null
 }
 
 export const pickTouchableOpacityProps = (props) => {

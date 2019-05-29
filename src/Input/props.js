@@ -39,6 +39,7 @@ export const propTypes = {
   onChangeText: PropTypes.func,
   onContentSizeChange: PropTypes.func,
   onFocus: PropTypes.func,
+  onLayout: PropTypes.func,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
@@ -46,7 +47,7 @@ export const propTypes = {
   register: PropTypes.func.isRequired
 }
 
-/** @type {InferProps<typeof propTypes>} */
+/** @type {PropTypes.InferProps<typeof propTypes>} */
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,
