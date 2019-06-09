@@ -3,16 +3,20 @@ import PropTypes from 'prop-types'
 import { DURATION, GRAY } from '../services/constants'
 import pick from '../services/pick'
 
-export const propTypes = {
-  activeColor: PropTypes.string,
-  error: PropTypes.string,
-  errorColor: PropTypes.string,
-  focused: PropTypes.bool,
+export const internalPropTypes = {
   underlineActiveColor: PropTypes.string,
   underlineActiveHeight: PropTypes.number,
   underlineColor: PropTypes.string,
   underlineDuration: PropTypes.number,
   underlineHeight: PropTypes.number
+}
+
+export const propTypes = {
+  ...internalPropTypes,
+  activeColor: PropTypes.string,
+  error: PropTypes.string,
+  errorColor: PropTypes.string,
+  focused: PropTypes.bool
 }
 
 /** @type {PropTypes.InferProps<typeof propTypes>} */

@@ -4,6 +4,7 @@ import { Text } from 'react-native'
 import { defaultProps, propTypes, PlaceholderVisibility } from './props'
 import * as styles from './styles'
 
+/** @augments {React.Component<typeof defaultProps, {}>} */
 export default class ReinputPlaceholder extends React.Component {
   static propTypes = propTypes
   static defaultProps = defaultProps

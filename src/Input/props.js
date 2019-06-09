@@ -4,22 +4,21 @@ import { TextInput } from 'react-native'
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
 import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
-
+import * as IconProps from '../Icon/props'
 import * as LabelProps from '../Label/props'
 import * as PlaceholderProps from '../Placeholder/props'
-import * as IconProps from '../Icon/props'
 import * as UnderlineProps from '../Underline/props'
 
-const noop = () => {}
+const noop = () => { }
 
 export const propTypes = {
   // ...TextInput.propTypes, // Breaks IDE auto-completion
   ...ErrorProps.propTypes,
-  ...LabelProps.propTypes,
-  ...PlaceholderProps.propTypes,
-  ...IconProps.propTypes,
-  ...UnderlineProps.propTypes,
-  style: PropTypes.node,
+  ...IconProps.internalPropTypes,
+  ...LabelProps.internalPropTypes,
+  ...PlaceholderProps.internalPropTypes,
+  ...UnderlineProps.internalPropTypes,
+  accessibilityLabel: PropTypes.string,
   activeColor: PropTypes.string,
   backgroundColor: PropTypes.string,
   color: PropTypes.string,
@@ -27,8 +26,9 @@ export const propTypes = {
   fontSize: PropTypes.number,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
-  icon: PropTypes.node,
-  iconOverlay: PropTypes.node,
+  icon: PropTypes.any,
+  iconOverlay: PropTypes.any,
+  labelSpacingTop: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
@@ -44,10 +44,15 @@ export const propTypes = {
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  style: PropTypes.node
 }
 
-/** @type {PropTypes.InferProps<typeof propTypes>} */
+/**
+ * @typedef {PropTypes.InferProps<typeof propTypes>} ReinputProps
+ * @typedef {import('react-native').TextInputProps} TextInputProps
+ * @type {ReinputProps&TextInputProps}
+*/
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,
@@ -55,15 +60,17 @@ export const defaultProps = {
   color: BLACK,
   fontSize: FONT,
   fontWeight: 'normal',
-  marginBottom: BASE_UNIT,
+  labelSpacingTop: BASE_UNIT * 2,
+  marginBottom: 0,
+  marginTop: 0,
   onBlur: noop,
   onChangeText: noop,
   onContentSizeChange: noop,
   onFocus: noop,
-  paddingBottom: BASE_UNIT,
+  paddingBottom: 0,
   paddingLeft: 0,
   paddingRight: 0,
-  paddingTop: BASE_UNIT * 3,
+  paddingTop: BASE_UNIT / 2,
   register: function () {},
   value: undefined
 }

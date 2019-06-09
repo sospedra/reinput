@@ -1,24 +1,32 @@
 import { Platform } from 'react-native'
 
-import { BASE_UNIT } from '../services/constants'
 import pick from '../services/pick'
 
 export const SCALE_FACTOR = 1.5
 
+export const columns = {
+  flexDirection: 'row',
+  flexWrap: 'wrap',
+  justifyContent: 'center',
+  alignItems: 'center'
+}
+
 export const row = {
   alignItems: 'center',
   flexDirection: 'row',
-  height: BASE_UNIT * 10
+  overflow: 'hidden'
+}
+
+export const cell = {
+  justifyContent: 'center'
 }
 
 export const container = (props) => ({
-  ...pick(props, [
-    'marginBottom',
-    'marginLeft',
-    'marginRight',
-    'marginTop',
-    'backgroundColor'
-  ]),
+  alignSelf: 'flex-start',
+  marginBottom: props.marginBottom,
+  marginLeft: props.marginLeft,
+  marginRight: props.marginRight,
+  marginTop: props.marginTop + (props.label ? props.labelSpacingTop : 0),
   flex: 1
 })
 
