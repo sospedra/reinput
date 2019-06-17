@@ -8,7 +8,7 @@ import * as ErrorProps from '../Error/props'
 const noop = () => {}
 
 export const propTypes = {
-  ...TouchableOpacity.propTypes,
+  // ...TouchableOpacity.propTypes, // Breaks IDE auto-completion
   ...ErrorProps.propTypes,
   activeColor: PropTypes.string,
   color: PropTypes.string,
@@ -32,7 +32,11 @@ export const propTypes = {
   register: PropTypes.func.isRequired
 }
 
-/** @type {PropTypes.InferProps<typeof propTypes>} */
+/**
+ * @typedef {PropTypes.InferProps<typeof propTypes>} ReinputButtonProps
+ * @typedef {import('react-native').TouchableOpacityProps} TouchableOpacityProps
+ * @type {ReinputButtonProps&TouchableOpacityProps}
+*/
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,

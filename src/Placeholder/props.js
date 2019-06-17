@@ -10,7 +10,15 @@ export const PlaceholderVisibility = {
   OnBlur: false
 }
 
+export const internalPropTypes = {
+  placeholder: PropTypes.string,
+  placeholderColor: PropTypes.string,
+  placeholderOpacity: PropTypes.number,
+  placeholderVisibility: PropTypes.bool
+}
+
 export const propTypes = {
+  ...internalPropTypes,
   focused: PropTypes.bool,
   fontFamily: PropTypes.string,
   fontSize: PropTypes.number,
@@ -19,11 +27,7 @@ export const propTypes = {
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
-  paddingTop: PropTypes.number,
-  placeholder: PropTypes.string,
-  placeholderColor: PropTypes.string,
-  placeholderOpacity: PropTypes.number,
-  placeholderVisibility: PropTypes.bool
+  paddingTop: PropTypes.number
 }
 
 /** @type {PropTypes.InferProps<typeof propTypes>} */

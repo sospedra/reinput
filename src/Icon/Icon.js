@@ -1,14 +1,16 @@
 import React from 'react'
-import { TouchableOpacity } from 'react-native'
+import { TouchableOpacity, Image } from 'react-native'
 
-import { propTypes } from './props'
+import { propTypes, defaultProps } from './props'
 import * as styles from './styles'
 
+/** @augments {React.Component<typeof defaultProps, {}>} */
 export default class ReinputIcon extends React.Component {
   static propTypes = propTypes
+  static defaultProps = defaultProps
 
-  render () {
-    const {icon, onPress, overlay, paddingBottom, children} = this.props
+  render() {
+    const { icon, onPress } = this.props
     if (!icon) {
       return null
     }
@@ -18,9 +20,9 @@ export default class ReinputIcon extends React.Component {
         accessible={false}
         activeOpacity={1}
         onPress={onPress}
-        style={[styles.icon, overlay && styles.overlay(paddingBottom)]}
+        style={styles.icon(this.props)}
       >
-        {children}
+        {React.isValidElement(icon) ? icon : <Image source={icon} />}
       </TouchableOpacity>
     )
   }

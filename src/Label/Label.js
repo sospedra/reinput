@@ -4,6 +4,7 @@ import { Text, Animated } from 'react-native'
 import { defaultProps, propTypes } from './props'
 import * as styles from './styles'
 
+/** @augments {React.Component<typeof defaultProps, {}>} */
 export default class ReinputLabel extends React.Component {
   static propTypes = propTypes
   static defaultProps = defaultProps

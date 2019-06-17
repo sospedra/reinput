@@ -1,17 +1,25 @@
 import { BASE_UNIT } from '../services/constants'
 
-const ICON_SIZE = BASE_UNIT * 6
-
-export const icon = {
+export const overlay = {
   alignItems: 'center',
-  height: ICON_SIZE,
   justifyContent: 'center',
-  marginBottom: BASE_UNIT * 3,
-  width: ICON_SIZE
+  position: 'absolute',
+  top: 0, bottom: 0, // Stretch vertically
+  right: BASE_UNIT
 }
 
-export const overlay = (paddingBottom) => ({
-  marginTop: paddingBottom, /* adjust negative bottom margin */
-  position: 'absolute',
-  right: 0
-})
+/** @param { import('./props').propTypes } props */
+export const icon = (props = {}) => {
+  if (props.overlay) {
+    return overlay
+  }
+  return {
+    alignItems: 'center',
+    alignSelf: 'flex-start',
+    justifyContent: 'flex-start',
+    height: props.iconHeight,
+    marginTop: props.marginTop,
+    paddingTop: props.iconPaddingTop,
+    width: props.iconWidth
+  }
+}

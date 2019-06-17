@@ -3,7 +3,17 @@ import PropTypes from 'prop-types'
 import { GRAY, DURATION } from '../services/constants'
 import pick from '../services/pick'
 
+export const internalPropTypes = {
+  label: PropTypes.string,
+  labelActiveColor: PropTypes.string,
+  labelActiveScale: PropTypes.number,
+  labelActiveTop: PropTypes.number,
+  labelColor: PropTypes.string,
+  labelDuration: PropTypes.number
+}
+
 export const propTypes = {
+  ...internalPropTypes,
   activeColor: PropTypes.string,
   error: PropTypes.string,
   errorColor: PropTypes.string,
@@ -12,12 +22,6 @@ export const propTypes = {
   fontSize: PropTypes.number,
   fontWeight: PropTypes.string,
   hasValue: PropTypes.bool,
-  label: PropTypes.string,
-  labelActiveColor: PropTypes.string,
-  labelActiveScale: PropTypes.number,
-  labelActiveTop: PropTypes.number,
-  labelColor: PropTypes.string,
-  labelDuration: PropTypes.number,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
