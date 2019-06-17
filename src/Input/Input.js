@@ -19,7 +19,7 @@ export default class ReinputInput extends React.Component {
   static propTypes = { ...propTypes, ...TextInput.propTypes }
   static defaultProps = defaultProps
 
-  constructor(props) {
+  constructor (props) {
     super(props)
 
     this.state = {
@@ -71,7 +71,7 @@ export default class ReinputInput extends React.Component {
 
   focus = () => this.ref && this.ref.focus()
 
-  render() {
+  render () {
     const { focused } = this.state
     const value = this.getValue()
     const hasValue = this.hasValueWithContent(value)

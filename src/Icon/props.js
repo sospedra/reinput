@@ -23,7 +23,7 @@ export const propTypes = {
 export const defaultProps = {
   iconHeight: ICON_SIZE,
   iconPaddingTop: BASE_UNIT / 2,
-  iconWidth: ICON_SIZE,
+  iconWidth: ICON_SIZE
 }
 
 export const pickIconProps = (props) => {

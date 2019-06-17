@@ -4,7 +4,8 @@ export const overlay = {
   alignItems: 'center',
   justifyContent: 'center',
   position: 'absolute',
-  top: 0, bottom: 0, // Stretch vertically
+  top: 0,
+  bottom: 0, // Stretch vertically
   right: BASE_UNIT
 }
 

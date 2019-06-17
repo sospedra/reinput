@@ -9,7 +9,7 @@ export default class ReinputIcon extends React.Component {
   static propTypes = propTypes
   static defaultProps = defaultProps
 
-  render() {
+  render () {
     const { icon, onPress } = this.props
     if (!icon) {
       return null
