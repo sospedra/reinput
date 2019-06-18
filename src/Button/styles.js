@@ -8,6 +8,6 @@ export const hidden = () => ({
   width: 0
 })
 
-export const transparent = () => ({
+export const transparent = {
   backgroundColor: 'transparent'
-})
+}

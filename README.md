@@ -99,7 +99,7 @@ How `placeholderVisibility` works?
 
 ```
 {
-    Always: undefined,
+    Always: 1,
     Never: null,
     OnFocus: true,
     OnBlur: false,
@@ -122,8 +122,10 @@ Name                  | Type               | Default
 :-------------------- |:------------------ |:----------
 error                 | String             |
 errorColor            | String             | `#fc1f4a`
-errorFontSize         | Number             | `12`
-errorPaddingTop       | Number             | `8`
+errorStyle            | TextStyle          |
+errorStyle.fontSize   | Number             | `12`
+errorStyle.paddingTop | Number             | `4`
+errorStyle.paddingBottom| Number           | `4`
 
 And **also** all the [TextInput](https://facebook.github.io/react-native/docs/textinput.html#props) properties will work.
 

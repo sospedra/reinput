@@ -4,7 +4,7 @@ import { GRAY } from '../services/constants'
 import pick from '../services/pick'
 
 export const PlaceholderVisibility = {
-  Always: undefined,
+  Always: 1,
   Never: null,
   OnFocus: true,
   OnBlur: false
@@ -14,7 +14,7 @@ export const internalPropTypes = {
   placeholder: PropTypes.string,
   placeholderColor: PropTypes.string,
   placeholderOpacity: PropTypes.number,
-  placeholderVisibility: PropTypes.bool
+  placeholderVisibility: PropTypes.oneOfType([PropTypes.number, PropTypes.bool])
 }
 
 export const propTypes = {

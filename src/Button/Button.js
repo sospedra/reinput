@@ -33,34 +33,39 @@ export default class ReinputButton extends React.Component {
     const height = this.props.fontSize * styles.SCALE_FACTOR
 
     return (
-      <View style={stylesInput.row}>
+      <View
+        onLayout={this.props.onLayout}
+        style={[stylesInput.row, this.props.style]}
+      >
         <Icon {...pickIconInternalProps(this.props)}
           icon={this.props.icon}
+          marginTop={this.props.label ? this.props.labelSpacingTop : 0}
         />
         <View style={stylesInput.container(this.props)}>
           <View
             accessible={this.props.accessible}
             accessibilityLabel={this.props.accessibilityLabel || this.props.label}
+            style={{ backgroundColor: this.props.backgroundColor }}
           >
+            <Label {...pickLabelProps({...this.props, hasValue})} />
             <TouchableOpacity
               {...pickTouchableOpacityProps(this.props)}
               onPress={this.onPress()}
               ref={this.props.register}
-              style={styles.transparent()}
+              style={styles.transparent}
             >
-              <View>
-                <Label {...pickLabelProps({...this.props, hasValue})} />
-                <Text
-                  numberOfLines={1}
-                  pointerEvents='none'
-                  style={[stylesInput.input(this.props, height), styles.input(this.props)]}
-                >
-                  {hasValue && this.props.value}
-                </Text>
-              </View>
+              <Text
+                numberOfLines={1}
+                pointerEvents='none'
+                style={[stylesInput.input(this.props, height), styles.input(this.props)]}
+              >
+                {hasValue && this.props.value}
+              </Text>
             </TouchableOpacity>
             <Icon {...pickIconInternalProps(this.props)}
-              overlay icon={this.props.iconOverlay} />
+              icon={this.props.iconOverlay}
+              overlay
+            />
             <Underline {...pickUnderlineProps({...this.props})} />
           </View>
           <Error {...pickErrorProps(this.props)} />

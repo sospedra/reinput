@@ -48,11 +48,7 @@ export const propTypes = {
   style: PropTypes.node
 }
 
-/**
- * @typedef {PropTypes.InferProps<typeof propTypes>} ReinputProps
- * @typedef {import('react-native').TextInputProps} TextInputProps
- * @type {ReinputProps&TextInputProps}
-*/
+/** @type {import('../types').ReinputProps} */
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,
@@ -61,7 +57,7 @@ export const defaultProps = {
   fontSize: FONT,
   fontWeight: 'normal',
   labelSpacingTop: BASE_UNIT * 2,
-  marginBottom: 0,
+  marginBottom: BASE_UNIT,
   marginTop: 0,
   onBlur: noop,
   onChangeText: noop,
