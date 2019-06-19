@@ -22,7 +22,7 @@ export const cell = {
 }
 
 export const container = (props) => {
-  const { marginTop = 0, labelSpacingTop = 0 } = props;
+  const { marginTop = 0, labelSpacingTop = 0 } = props
   return {
     alignSelf: 'flex-start',
     marginBottom: props.marginBottom,

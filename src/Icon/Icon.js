@@ -4,11 +4,15 @@ import { TouchableOpacity, View, Image } from 'react-native'
 import { propTypes, defaultProps } from './props'
 import * as styles from './styles'
 
-export function Container(props) {
-  const { onPress } = props;
+export function Container (props) {
+  const { onPress } = props
   return onPress
     ? <TouchableOpacity activeOpacity={1} {...props}/>
-    : <View pointerEvents="none" {...props} />;
+    : <View pointerEvents="none" {...props} />
+}
+
+Container.propTypes = {
+  onPress: propTypes.onPress
 }
 
 /** @augments {React.Component<typeof defaultProps, {}>} */
