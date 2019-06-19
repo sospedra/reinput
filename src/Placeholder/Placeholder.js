@@ -16,7 +16,7 @@ export default class ReinputPlaceholder extends React.Component {
         )) {
       return (
         <Text numberOfLines={1} pointerEvents="none"
-          style= {styles.placeholder(this.props)}>
+          style={styles.placeholder(this.props)}>
           {this.props.placeholder}
         </Text>
       )

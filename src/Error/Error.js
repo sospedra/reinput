@@ -16,7 +16,7 @@ export default class ReinputError extends React.Component {
     return this.props.error ? (
       <Text
         numberOfLines={this.props.errorMaxLines}
-        style={styles.error(this.props)}
+        style={[styles.error, {color: this.props.errorColor}, this.props.errorStyle]}
       >
         {this.props.error}
       </Text>

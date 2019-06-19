@@ -21,14 +21,17 @@ export const cell = {
   justifyContent: 'center'
 }
 
-export const container = (props) => ({
-  alignSelf: 'flex-start',
-  marginBottom: props.marginBottom,
-  marginLeft: props.marginLeft,
-  marginRight: props.marginRight,
-  marginTop: props.marginTop + (props.label ? props.labelSpacingTop : 0),
-  flex: 1
-})
+export const container = (props) => {
+  const { marginTop = 0, labelSpacingTop = 0 } = props;
+  return {
+    alignSelf: 'flex-start',
+    marginBottom: props.marginBottom,
+    marginLeft: props.marginLeft,
+    marginRight: props.marginRight,
+    marginTop: marginTop + (props.label ? labelSpacingTop : 0),
+    flex: 1
+  }
+}
 
 export const input = (props = {}, stateHeight, hasValue) => {
   const autogrowHeight = (props.multiline && props.height) ? props.height : stateHeight

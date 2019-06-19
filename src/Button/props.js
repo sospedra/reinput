@@ -4,20 +4,28 @@ import { TouchableOpacity } from 'react-native'
 import { BASE_UNIT, BLACK, FONT } from '../services/constants'
 import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
+import * as IconProps from '../Icon/props'
+import * as LabelProps from '../Label/props'
+import * as UnderlineProps from '../Underline/props'
 
 const noop = () => {}
 
 export const propTypes = {
   // ...TouchableOpacity.propTypes, // Breaks IDE auto-completion
   ...ErrorProps.propTypes,
+  ...IconProps.internalPropTypes,
+  ...LabelProps.internalPropTypes,
+  ...UnderlineProps.internalPropTypes,
   activeColor: PropTypes.string,
+  backgroundColor: PropTypes.string,
   color: PropTypes.string,
   fontFamily: PropTypes.string,
   fontSize: PropTypes.number,
   fontWeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   height: PropTypes.number,
-  icon: PropTypes.node,
-  iconOverlay: PropTypes.node,
+  icon: PropTypes.any,
+  iconOverlay: PropTypes.any,
+  labelSpacingTop: PropTypes.number,
   marginBottom: PropTypes.number,
   marginLeft: PropTypes.number,
   marginRight: PropTypes.number,
@@ -25,30 +33,30 @@ export const propTypes = {
   maxHeight: PropTypes.number,
   minHeight: PropTypes.number,
   onPress: PropTypes.func,
+  onLayout: PropTypes.func,
   paddingBottom: PropTypes.number,
   paddingLeft: PropTypes.number,
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
-  register: PropTypes.func.isRequired
+  register: PropTypes.func.isRequired,
+  value: PropTypes.string
 }
 
-/**
- * @typedef {PropTypes.InferProps<typeof propTypes>} ReinputButtonProps
- * @typedef {import('react-native').TouchableOpacityProps} TouchableOpacityProps
- * @type {ReinputButtonProps&TouchableOpacityProps}
-*/
+/** @type {import('../types').ReinputButtonProps} */
 export const defaultProps = {
   ...ErrorProps.defaultProps,
   accessible: true,
   color: BLACK,
   fontSize: FONT,
   fontWeight: 'normal',
+  labelSpacingTop: BASE_UNIT * 2,
   marginBottom: BASE_UNIT,
+  marginTop: 0,
   onPress: noop,
-  paddingBottom: BASE_UNIT,
+  paddingBottom: 0,
   paddingLeft: 0,
   paddingRight: 0,
-  paddingTop: BASE_UNIT * 3,
+  paddingTop: BASE_UNIT / 2,
   register: function () {},
   value: null
 }
