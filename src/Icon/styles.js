@@ -1,7 +1,7 @@
 import { BASE_UNIT } from '../services/constants'
 
 export const overlay = {
-  alignItems: 'center',
+  alignItems: 'flex-end',
   justifyContent: 'center',
   position: 'absolute',
   // Stretch vertically

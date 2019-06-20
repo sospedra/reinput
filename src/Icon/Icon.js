@@ -31,7 +31,18 @@ export default class ReinputIcon extends React.Component {
         onPress={onPress}
         style={styles.icon(this.props)}
       >
-        {React.isValidElement(icon) ? icon : <Image source={icon} />}
+        {
+          React.isValidElement(icon)
+            ? icon
+            : <Image
+              resizeMode='contain'
+              source={icon}
+              style={{
+                flex: 1, aspectRatio: 1,
+                maxHeight: this.props.overlay ? '85%' : this.props.iconHeight
+              }}
+            />
+        }
       </Container>
     )
   }

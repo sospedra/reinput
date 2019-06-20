@@ -6,9 +6,9 @@ import { BASE_UNIT } from '../services/constants'
 export const ICON_SIZE = BASE_UNIT * 6
 
 export const internalPropTypes = {
-  iconHeight: PropTypes.number,
+  iconHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   iconPaddingTop: PropTypes.number,
-  iconWidth: PropTypes.number
+  iconWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
 }
 
 export const propTypes = {
