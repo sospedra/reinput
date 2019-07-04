@@ -66,8 +66,8 @@ export default class ReinputButton extends React.Component {
               icon={this.props.iconOverlay}
               overlay
             />
-            <Underline {...pickUnderlineProps({...this.props})} />
           </View>
+          <Underline {...pickUnderlineProps({...this.props})} />
           <Error {...pickErrorProps(this.props)} />
         </View>
       </View>

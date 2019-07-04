@@ -1,15 +1,13 @@
 import PropTypes from 'prop-types'
 import { TextInput } from 'react-native'
 
-import { BASE_UNIT, BLACK, FONT } from '../services/constants'
+import { BASE_UNIT, BLACK, FONT, noop } from '../services/constants'
 import pick from '../services/pick'
 import * as ErrorProps from '../Error/props'
 import * as IconProps from '../Icon/props'
 import * as LabelProps from '../Label/props'
 import * as PlaceholderProps from '../Placeholder/props'
 import * as UnderlineProps from '../Underline/props'
-
-const noop = () => { }
 
 export const propTypes = {
   // ...TextInput.propTypes, // Breaks IDE auto-completion

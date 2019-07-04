@@ -6,3 +6,5 @@ export const FONT = 15
 export const FONT_SMALL = 12
 export const GRAY = '#757575'
 export const RED = '#fc1f4a'
+
+export const noop = () => { }

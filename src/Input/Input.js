@@ -110,8 +110,8 @@ export default class ReinputInput extends React.Component {
               icon={this.props.iconOverlay}
               overlay
             />
-            <Underline {...pickUnderlineProps({ ...this.props, focused })} />
           </View>
+          <Underline {...pickUnderlineProps({ ...this.props, focused })} />
           <Error {...pickErrorProps(this.props)} />
         </View>
       </View>
