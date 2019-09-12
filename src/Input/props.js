@@ -43,7 +43,8 @@ export const propTypes = {
   paddingRight: PropTypes.number,
   paddingTop: PropTypes.number,
   register: PropTypes.func.isRequired,
-  style: PropTypes.node
+  style: PropTypes.node,
+  textAlign: PropTypes.string
 }
 
 /** @type {import('../types').ReinputProps} */
@@ -66,6 +67,7 @@ export const defaultProps = {
   paddingRight: 0,
   paddingTop: BASE_UNIT / 2,
   register: function () {},
+  textAlign: 'left',
   value: undefined
 }
 
