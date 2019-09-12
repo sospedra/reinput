@@ -47,7 +47,8 @@ export const input = (props = {}, stateHeight, hasValue) => {
     'paddingBottom',
     'paddingLeft',
     'paddingRight',
-    'paddingTop'
+    'paddingTop',
+    'textAlign'
   ])
 
   return {
