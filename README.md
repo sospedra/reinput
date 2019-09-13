@@ -66,6 +66,7 @@ paddingLeft           | Number             | `0`
 paddingRight          | Number             | `0`
 paddingTop            | Number             | `20`
 register              | Function           | `noop`
+textAlign             | String             | `left`
 
 * Register exposes the `TextInput` ref component out
 
