@@ -44,7 +44,8 @@ export const propTypes = {
   paddingTop: PropTypes.number,
   register: PropTypes.func.isRequired,
   style: PropTypes.node,
-  textAlign: PropTypes.string
+  textAlign: PropTypes.string,
+  secureTextEntry: PropTypes.bool
 }
 
 /** @type {import('../types').ReinputProps} */
