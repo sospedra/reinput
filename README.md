@@ -23,18 +23,23 @@ paves the way towards and easier and faster development.
 
 We also expose a ReinputButton. Check the docs ;)
 
+### Demo
+
+Wanna try before? Here's an [interactive Expo snack](https://snack.expo.io/@git/github.com/sospedra/reinput:example).
+Otherwise, you can clone the repo and run the `/example` folder. It's the same, tho.
+
 ### Usage
 
 ```js
-import Reinput from 'reinput'
+import Reinput from "reinput"
 
 const Input = () => (
   <View>
-    <Reinput label='name' />
-    <Reinput error='Handles error' />
-    <Reinput label='name' value='control value from outside' />
-    <Reinput label='name' defaultValue='initial value' />
-    <Reinput label='name' onChangeText={/* any TextInput prop */} />
+    <Reinput label="name" />
+    <Reinput error="Handles error" />
+    <Reinput label="name" value="control value from outside" />
+    <Reinput label="name" defaultValue="initial value" />
+    <Reinput label="name" onChangeText={/* any TextInput prop */} />
   </View>
 )
 ```
@@ -43,58 +48,58 @@ const Input = () => (
 
 #### Input
 
-Name                  | Type               | Default
-:-------------------- |:------------------ |:----------
-activeColor           | String             |
-color                 | String             | `#000000`
-fontFamily            | String             |
-fontSize              | Number             | `15`
-fontWeight            | String or Number   | `normal`
-height                | Number             | `64`
-marginBottom          | Number             | `8`
-marginLeft            | Number             |
-marginRight           | Number             |
-marginTop             | Number             |
-maxHeight             | Number             |
-minHeight             | Number             |
-onBlur                | Function           |
-onChangeText          | Function           |
-onContentSizeChange   | Function           |
-onFocus               | Function           |
-paddingBottom         | Number             | `8`
-paddingLeft           | Number             | `0`
-paddingRight          | Number             | `0`
-paddingTop            | Number             | `20`
-register              | Function           | `noop`
-textAlign             | String             | `left`
+| Name                | Type             | Default   |
+| :------------------ | :--------------- | :-------- |
+| activeColor         | String           |
+| color               | String           | `#000000` |
+| fontFamily          | String           |
+| fontSize            | Number           | `15`      |
+| fontWeight          | String or Number | `normal`  |
+| height              | Number           | `64`      |
+| marginBottom        | Number           | `8`       |
+| marginLeft          | Number           |
+| marginRight         | Number           |
+| marginTop           | Number           |
+| maxHeight           | Number           |
+| minHeight           | Number           |
+| onBlur              | Function         |
+| onChangeText        | Function         |
+| onContentSizeChange | Function         |
+| onFocus             | Function         |
+| paddingBottom       | Number           | `8`       |
+| paddingLeft         | Number           | `0`       |
+| paddingRight        | Number           | `0`       |
+| paddingTop          | Number           | `20`      |
+| register            | Function         | `noop`    |
+| textAlign           | String           | `left`    |
 
-* Register exposes the `TextInput` ref component out
+- Register exposes the `TextInput` ref component out
 
 #### Label
 
-name                  | type               | default
-:-------------------- |:------------------ |:------------------
-label                 | String             |
-labelActiveColor      | String             | `#3f51b5`
-labelActiveScale      | Number             | `0.8`
-labelActiveTop        | Number             | `-18`
-labelColor            | String             | `#757575`
-labelDuration         | Number             | `200`
+| name             | type   | default   |
+| :--------------- | :----- | :-------- |
+| label            | String |
+| labelActiveColor | String | `#3f51b5` |
+| labelActiveScale | Number | `0.8`     |
+| labelActiveTop   | Number | `-18`     |
+| labelColor       | String | `#757575` |
+| labelDuration    | Number | `200`     |
 
 #### Icon
 
-Name                  | Type               | Default
-:-------------------- |:------------------ |:----------
-icon                  | Element            |
-iconOverlay           | Element            |
+| Name        | Type    | Default |
+| :---------- | :------ | :------ |
+| icon        | Element |
+| iconOverlay | Element |
 
 #### Placeholder
 
-Name                  | Type                    | Default
-:-------------------- |:----------------------- |:----------
-placeholder           | String                  |
-placeholderColor      | String                  | `#757575`
-placeholderVisibility | boolean|undefined|null  |
+| Name                  | Type    | Default   |
+| :-------------------- | :------ | :-------- |
+| placeholder           | String  |
+| placeholderColor      | String  | `#757575` |
+| placeholderVisibility | boolean | undefined | null |
 
 How `placeholderVisibility` works?
 
@@ -109,24 +114,24 @@ How `placeholderVisibility` works?
 
 #### Underline
 
-Name                  | Type               | Default
-:-------------------- |:------------------ |:----------
-underlineActiveColor  | String             | `#3f51b5`
-underlineActiveHeight | Number             | `2`
-underlineColor        | String             | `#757575`
-underlineDuration     | Number             | `200`
-underlineHeight       | Number             | `1`
+| Name                  | Type   | Default   |
+| :-------------------- | :----- | :-------- |
+| underlineActiveColor  | String | `#3f51b5` |
+| underlineActiveHeight | Number | `2`       |
+| underlineColor        | String | `#757575` |
+| underlineDuration     | Number | `200`     |
+| underlineHeight       | Number | `1`       |
 
 #### Error
 
-Name                  | Type               | Default
-:-------------------- |:------------------ |:----------
-error                 | String             |
-errorColor            | String             | `#fc1f4a`
-errorStyle            | TextStyle          |
-errorStyle.fontSize   | Number             | `12`
-errorStyle.paddingTop | Number             | `4`
-errorStyle.paddingBottom| Number           | `4`
+| Name                     | Type      | Default   |
+| :----------------------- | :-------- | :-------- |
+| error                    | String    |
+| errorColor               | String    | `#fc1f4a` |
+| errorStyle               | TextStyle |
+| errorStyle.fontSize      | Number    | `12`      |
+| errorStyle.paddingTop    | Number    | `4`       |
+| errorStyle.paddingBottom | Number    | `4`       |
 
 And **also** all the [TextInput](https://facebook.github.io/react-native/docs/textinput.html#props) properties will work.
 
@@ -138,21 +143,16 @@ We do following the [material design guidelines](https://material.io/design/comp
 Props are the same as the Input but it also accepts an `onPress` and doesn't have hooks for focus/blur events.
 
 ```js
-import { ReinputButton } from 'reinput'
+import { ReinputButton } from "reinput"
 
 const Input = () => (
   <ReinputButton
-    label='This is not an Input'
-    value='If there is no value it shows the label as placeholder'
+    label="This is not an Input"
+    value="If there is no value it shows the label as placeholder"
     onPress={/* whatever callback */}
   />
 )
 ```
-
-### Example
-
-I'm working on an expo demo. So far, you can clone the project and check the example dir.
-It's the one of the gif ;)
 
 ### Credits
 
