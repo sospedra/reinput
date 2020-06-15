@@ -1,50 +1,60 @@
 <!DOCTYPE html>
 <html lang="en">
   <head>
-    <meta charset="utf-8">
-    <meta name="viewport" content="width=device-width,initial-scale=1">
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width,initial-scale=1" />
+    <meta
+      name="description"
+      content="A React Native TextInput with material style. Get it on Github and try the demo with Expo."
+    />
+    <link rel="canonical" href="https://reinput.sospedra.me" />
 
     <title>Reinput — A React Native TextInput with material style 😎</title>
+    <link
+      rel="stylesheet"
+      href="https://cdn.jsdelivr.net/npm/@exampledev/new.css@1.1.2/new.min.css"
+    />
     <style type="text/css">
-      * {
-        box-sizing: border-box;
+      .inset-0 {
+        position: fixed;
+        top: 0;
+        right: 0;
+        left: 0;
+        bottom: 0;
+        z-index: -1;
       }
-      html, body {
-        min-height: 100%;
-        margin: 0;
-        background: linear-gradient(to bottom, #ffc99f 0%, #ef64b6 100%);
-        font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, Helvetica, Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol";
+      .granimate {
+        background-color: #2ecc71;
+        width: 100vw;
+        height: 100vh;
+        animation: hue 11s linear 0s infinite reverse;
       }
-      h1 {
-        color: #64ef9d;
-        text-align: center;
-        text-shadow: 0px 2px 1px #24292E;
+      .granimate::before {
+        background: linear-gradient(105deg, rgba(255, 190, 0, 0), #ffbe00);
+        animation: hue 12s linear 1s infinite;
       }
-      h2 {
-        color: #24292E;
-        text-align: center;
+      .full::before {
+        content: "";
+        position: absolute;
+        width: 100vw;
+        height: 100vh;
       }
-      .container {
-        padding: 10%;
-        display: flex;
-        justify-content: space-around;
-        align-items: center;
+
+      @keyframes hue {
+        to {
+          filter: hue-rotate(1turn);
+        }
       }
+    </style>
+    <style type="text/css">
       .device {
         overflow: hidden;
         position: relative;
-        display: inline-flex;
-        width: 45vw;
-        height: 90vw;
-        max-width: 325px;
-        max-height: 625px;
-      }
-      .claim {
-        width: 50%;
         display: flex;
-        flex-direction: column;
-        align-items: center;
-        justify-content: center;
+        min-width: 18rem;
+        min-height: 34.6rem;
+        max-width: 20rem;
+        max-height: 38.5rem;
       }
       .frame {
         position: absolute;
@@ -53,13 +63,14 @@
         bottom: 0;
         left: 0;
         z-index: 2;
+        width: 100%;
         height: 100%;
       }
       .bg {
         flex: 1;
-        margin: 5%;
+        margin: 0.5rem;
         background-color: white;
-        border-radius: 10%;
+        border-radius: 2rem;
       }
       .video {
         position: absolute;
@@ -68,29 +79,81 @@
         bottom: 0;
         height: 100%;
         left: 0;
-        width: 98%;
-        padding: 10px;
+        width: 100%;
         box-sizing: border-box;
         z-index: 1;
       }
-      .github {
-        border-radius: 8px;
-        padding: 16px;
+    </style>
+    <style type="text/css">
+      body {
+        min-height: calc(100vh - 4rem);
+        display: flex;
+        flex-direction: column;
+      }
+
+      h1,
+      h2 {
+        border-bottom: 0;
+        text-align: center;
+        line-height: 2.5rem;
+      }
+      code {
+        font-size: inherit;
+        opacity: 0.75;
+      }
+
+      .claim {
+        display: flex;
+        flex-direction: column;
+        align-items: center;
+        justify-content: center;
+      }
+
+      .container {
+        display: flex;
+        flex-direction: row;
+        text-decoration: none;
+        flex: 1;
+        justify-content: center;
+        align-items: center;
+        width: 100%;
+      }
+      .cta {
+        border-radius: 0.2rem;
+        padding: 1rem;
         text-align: center;
         text-decoration: none;
-        background-color: #24292E;
+        background-color: #1a202c;
         display: inline-block;
         color: white;
       }
-      .github:hover {
+      .cta:hover {
         opacity: 0.8;
+        color: white;
       }
-      @media (max-width: 800px) {
+      .demo {
+        background-color: #5a67d8;
+      }
+      .row {
+        display: flex;
+        margin-top: 1rem;
+      }
+      .row a:first-child {
+        margin-right: 1rem;
+      }
+      .footer {
+        padding-top: 2rem;
+        font-size: small;
+        font-style: italic;
+        text-align: center;
+      }
+
+      @media (max-width: 44rem) {
         .container {
-          flex-direction: column;
+          flex-direction: column-reverse;
         }
-        .claim {
-          width: 100%;
+        .device {
+          margin-top: 2rem;
         }
       }
     </style>
@@ -99,24 +162,46 @@
     <div class="container">
       <div class="device">
         <div class="bg"></div>
-         <img class="frame" src="https://i.imgur.com/tlGEoE2.png" />
-          <video
-            class="video"
-            preload="auto"
-            autoplay="autoplay"
-            muted="muted"
-            loop="loop"
-          >
-            <source src="//i.imgur.com/SOcaUo0.mp4" type="video/mp4">
-          </video>
+        <img class="frame" src="https://i.imgur.com/tlGEoE2.png" />
+        <video
+          class="video"
+          preload="auto"
+          autoplay="autoplay"
+          muted="muted"
+          loop="loop"
+        >
+          <source src="//i.imgur.com/SOcaUo0.mp4" type="video/mp4" />
+        </video>
       </div>
+
       <main class="claim">
         <h1>REINPUT</h1>
-        <h2>A React Native TextInput with material style 😎</h2>
-        <a class="github" href="https://github.com/sospedra/reinput">
-          View on GitHub
-        </a>
+        <h2>
+          A React Native
+          <code>TextInput</code>
+          with material style 😎
+        </h2>
+        <div class="row">
+          <a class="cta" href="https://github.com/sospedra/reinput">
+            View on GitHub
+          </a>
+          <a
+            class="cta demo"
+            href="https://snack.expo.io/@git/github.com/sospedra/reinput:example"
+          >
+            Try demo
+          </a>
+        </div>
       </main>
     </div>
+
+    <div class="granimate full inset-0"></div>
+
+    <p class="footer">
+      hand-crafted with ▼ by
+      <a href="https://sospedra.me" target="_blank" rel="noopener noreferrer"
+        >@sospedra</a
+      >
+    </p>
   </body>
 </html>

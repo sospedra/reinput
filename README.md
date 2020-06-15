@@ -1,6 +1,6 @@
 # Reinput
 
-[![devDependency Status](https://david-dm.org/sospedra/reinput/dev-status.svg)](https://david-dm.org/sospedra/reinput#info=devDependencies)
+![npm type definitions](https://img.shields.io/npm/types/typescript)
 [![js-standard-style](https://img.shields.io/badge/code%20style-standard-brightgreen.svg)](http://standardjs.com/)
 [![semantic-release](https://img.shields.io/badge/%20%20%F0%9F%93%A6%F0%9F%9A%80-semantic--release-e10079.svg)](https://github.com/semantic-release/semantic-release)
 [![npm](https://img.shields.io/npm/dm/reinput.svg)](https://www.npmjs.org/package/awesome-badges)
