@@ -95,11 +95,12 @@ const Input = () => (
 
 #### Placeholder
 
-| Name                  | Type    | Default   |
-| :-------------------- | :------ | :-------- |
-| placeholder           | String  |
-| placeholderColor      | String  | `#757575` |
-| placeholderVisibility | boolean | undefined | null |
+| Name                  | Type                 | Default   |
+| :-------------------- | :------------------- | :-------- |
+| placeholder           | String               |
+| placeholderColor      | String               | `#757575` |
+| placeholderOpacity    | Number               | 1         |
+| placeholderVisibility | boolean or 1 or null | true      |
 
 How `placeholderVisibility` works?
 
