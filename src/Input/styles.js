@@ -57,7 +57,8 @@ export const input = (props = {}, stateHeight, hasValue) => {
       ios: { height },
       android: {
         height,
-        textAlignVertical: 'top'
+        textAlignVertical: 'top',
+        borderBottomColor: 'transparent',
       }
     })
   }
