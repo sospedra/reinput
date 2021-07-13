@@ -83,7 +83,7 @@ export default class ReinputInput extends React.Component {
       >
         <Icon {...pickIconInternalProps(this.props)}
           icon={this.props.icon}
-          onPress={this.focus}
+          onPress={this.props.iconOnPress? this.props.iconOnPress :this.focus}
           marginTop={this.props.label ? this.props.labelSpacingTop : 0}
         />
         <View style={styles.container(this.props)}>
@@ -108,6 +108,7 @@ export default class ReinputInput extends React.Component {
             />
             <Icon {...pickIconInternalProps(this.props)}
               icon={this.props.iconOverlay}
+              onPress={this.props.overlayOnPress}
               overlay
             />
           </View>
