@@ -8,7 +8,9 @@ export const ICON_SIZE = BASE_UNIT * 6
 export const internalPropTypes = {
   iconHeight: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
   iconPaddingTop: PropTypes.number,
-  iconWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number])
+  iconWidth: PropTypes.oneOfType([PropTypes.string, PropTypes.number]),
+  iconOnPress: PropTypes.func,
+  overlayOnPress:PropTypes.func
 }
 
 export const propTypes = {
